@@ -47,6 +47,8 @@ class JogoFutebol
     private int golsJogador;
     private int golsComputador;
 
+    private int resp;
+
     private void LimparTela()
     {
         Console.Clear();
@@ -91,7 +93,7 @@ class JogoFutebol
         Console.WriteLine("-----------------------------------------------");
         Console.ResetColor();
         Console.WriteLine("Escolha uma das opções (1 ou 2)");
-        int resp = int.Parse(Console.ReadLine());
+        resp = int.Parse(Console.ReadLine());
         Console.ResetColor();
 
        
@@ -122,9 +124,6 @@ class JogoFutebol
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 
                 
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("Link dos 'criadores' do código (Digite 1 para acessar ou 2 para cancelar)");
-                Console.WriteLine("");
                 
                 Console.WriteLine("░░░░░░░░▌▒█░░░░░░░░░░░▄▀▒▌ ");
                 Console.WriteLine("░░░░░░░░▌▒▒█░░░░░░░░▄▀▒▒▒▐ ");
@@ -143,7 +142,11 @@ class JogoFutebol
                 Console.WriteLine("░░▀▄▒▒▒▒▒▒▒▒▒▒▒░▒░▒░▒▄▒▒▒▒▌ ");
                 Console.WriteLine("░░░░▀▄▒▒▒▒▒▒▒▒▒▒▄▄▄▀▒▒▒▒▄▀ ");
                 Console.ResetColor();
-                 string escolha = Console.ReadLine();
+                Console.WriteLine("");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("Link dos 'criadores' do código (Digite 1 para acessar ou 2 para cancelar)");
+                Console.WriteLine("");
+                string escolha = Console.ReadLine();
 
                   if (escolha == "1")
                    {
@@ -298,10 +301,7 @@ static void AbrirLinkArquivoWord()
         Console.ReadLine();
         LimparTela();
 
-        Console.WriteLine($"Qual opção você escolheu? 1-({nomeJogador1} x computador) ou 2-({nomeJogador1}  x {jogador2.Nome})");
-        int resposta = int.Parse(Console.ReadLine());
-
-        if (resposta == 1){
+        if (resp == 1){
     
         Console.WriteLine("---------------------- Resultado Jogador x Computador (Caso escolheu 1)----------------------");
         Console.WriteLine($"Pontos de {nomeJogador1}: {pontosJogador}");
@@ -311,7 +311,7 @@ static void AbrirLinkArquivoWord()
         Console.WriteLine("----------------------------------------------------------------------------------------------");
         }
         
-        else if (resposta == 2){
+        else if (resp == 2){
    
 
         Console.WriteLine("---------------------- Resultado Jogador x jogador 2 (Caso escolheu 2)----------------------");
@@ -323,14 +323,14 @@ static void AbrirLinkArquivoWord()
 
 
 
-         if (resposta == 2 && golsJogador1 > golsJogador2 && pontosJogador>pontosComputador || golsJogador1 > golsJogador2 && pontosJogador<pontosComputador || golsJogador1 == golsJogador2 && pontosJogador>pontosComputador )
+         if (resp == 2 && golsJogador1 > golsJogador2 && pontosJogador>pontosComputador || golsJogador1 > golsJogador2 && pontosJogador<pontosComputador || golsJogador1 == golsJogador2 && pontosJogador>pontosComputador )
         {
             Console.WriteLine($"PARABÉNS, {jogador.Nome}! VOCÊ VENCEU COM {golsJogador1} GOLS.");
             Console.WriteLine($"{jogador.Nome}: {pontosJogador} pontos.");
             LimparTela();
 
         }
-        else if (resposta == 2 && golsJogador2 > golsJogador1 && pontosComputador>pontosJogador || golsJogador2 > golsJogador1 && pontosComputador<pontosJogador ||golsJogador2 == golsJogador1 && pontosComputador>pontosJogador  )
+        else if (resp == 2 && golsJogador2 > golsJogador1 && pontosComputador>pontosJogador || golsJogador2 > golsJogador1 && pontosComputador<pontosJogador ||golsJogador2 == golsJogador1 && pontosComputador>pontosJogador  )
         {
             Console.WriteLine($"{jogador2.Nome} VENCEU COM {golsJogador2} GOLS.");
             Console.WriteLine($"{jogador2.Nome}: {pontosComputador} pontos.");
@@ -373,12 +373,12 @@ static void AbrirLinkArquivoWord()
 
         
         
-        if (resposta == 1 &&  golsJogador1 > golsJogador2 && pontosJogador>pontosComputador || golsJogador1 > golsJogador2 && pontosJogador<pontosComputador || golsJogador1 == golsJogador2 && pontosJogador>pontosComputador )
+        if (resp == 1 &&  golsJogador1 > golsJogador2 && pontosJogador>pontosComputador || golsJogador1 > golsJogador2 && pontosJogador<pontosComputador || golsJogador1 == golsJogador2 && pontosJogador>pontosComputador )
         {
             Console.WriteLine($"PARABÉNS, {nomeJogador1}! VOCÊ VENCEU COM {golsJogador1} GOLS.");
             Console.WriteLine($"{nomeJogador1}: {pontosJogador} pontos.");
         }
-        else if (resposta == 1 && golsJogador2 > golsJogador1 && pontosComputador>pontosJogador || golsJogador2 > golsJogador1 && pontosComputador<pontosJogador ||golsJogador2 == golsJogador1 && pontosComputador>pontosJogador  )
+        else if (resp == 1 && golsJogador2 > golsJogador1 && pontosComputador>pontosJogador || golsJogador2 > golsJogador1 && pontosComputador<pontosJogador ||golsJogador2 == golsJogador1 && pontosComputador>pontosJogador  )
         {
             Console.WriteLine($"{nomeJogador2} VENCEU COM {golsJogador2} GOLS.");
             Console.WriteLine($"{nomeJogador2}: {pontosComputador} pontos.");
@@ -681,13 +681,15 @@ static void AbrirLinkArquivoWord()
                     return 1;
                 case 4:
                     Console.WriteLine("Cartão Amarelo - 1 ponto");
+                    energia = energia - 1;
                     return 1;
                 case 5:
                     Console.WriteLine("Cartão Vermelho - 0 pontos");
+                    energia = energia -2;
                     return 0;
                 case 6:
                     Console.WriteLine("Energia - 2 energias");
-                    energia += 2;
+                    energia = energia + 2;
                     return 2;
                 default:
                     Console.WriteLine("Carta desconhecida");

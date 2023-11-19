@@ -49,6 +49,8 @@ class JogoFutebol
 
     private int resp;
 
+    private int opcaoDesempate;
+    
     private void LimparTela()
     {
         Console.Clear();
@@ -62,6 +64,36 @@ class JogoFutebol
        
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //INICIAR O JOGO
@@ -163,7 +195,7 @@ class JogoFutebol
 
 static void AbrirLinkArquivoWord()
     {
-        string link = "http://127.0.0.1:5500/index.html";
+        string link = "https://xplayb2studio.netlify.app";
 
         try
         {
@@ -194,6 +226,37 @@ static void AbrirLinkArquivoWord()
         
     }
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
  //------------------------------------------------------JOGADOR1 X JOGADOR2 -------------------------------------------------------------------------------------
   private void JogarPartidaEntreJogadores(ref int pontosJogador, ref int pontosComputador, ref int golsJogador, ref int golsComputador)
@@ -238,6 +301,36 @@ static void AbrirLinkArquivoWord()
         AtualizarGols(ref golsJogador, ref golsComputador, pontosJogador, pontosComputador);
         Console.WriteLine("Fim de jogo!");
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     //------------------------------------------------------COMPUTADOR X JOGADOR-------------------------------------------------------------------------------------
@@ -295,6 +388,39 @@ static void AbrirLinkArquivoWord()
     
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //EXIBIR RESULTADO DE AMBOS JOGADORES
     private void ExibirResultado(string nomeJogador1, string nomeJogador2, int golsJogador1, int golsJogador2, int pontosJogador, int pontosComputador)
     {
@@ -337,16 +463,16 @@ static void AbrirLinkArquivoWord()
             LimparTela();
         }
 
-           else
+           else if (resp == 1 && golsJogador == golsJogador2 && pontosComputador == pontosJogador)
         {
             Console.WriteLine("O JOGO TERMINOU EMPATADO!");
             Console.WriteLine("Escolha o que deseja fazer para desempatar:");
             Console.WriteLine("1. Disputa de pênaltis");
             Console.WriteLine("2. Gol de ouro");
             Console.WriteLine("3. Permanecer empatado");
-       
+            Console.WriteLine("4. Prorrogação");
 
-            int opcaoDesempate = int.Parse(Console.ReadLine());
+           opcaoDesempate = int.Parse(Console.ReadLine());
 
             switch (opcaoDesempate)
             {
@@ -359,6 +485,10 @@ static void AbrirLinkArquivoWord()
             
                 case 3:
                     Console.WriteLine("O jogo permanece empatado.");
+                    break;
+
+                  case 4:
+                    Prorrogacao();
                     break;
 
                 default:
@@ -383,16 +513,17 @@ static void AbrirLinkArquivoWord()
             Console.WriteLine($"{nomeJogador2} VENCEU COM {golsJogador2} GOLS.");
             Console.WriteLine($"{nomeJogador2}: {pontosComputador} pontos.");
         }
-        else
+        else if (resp == 1 && golsJogador == golsJogador2 && pontosComputador == pontosJogador)
         {
             Console.WriteLine("O JOGO TERMINOU EMPATADO!");
             Console.WriteLine("Escolha o que deseja fazer para desempatar:");
             Console.WriteLine("1. Disputa de pênaltis");
             Console.WriteLine("2. Gol de ouro");
             Console.WriteLine("3. Permanecer empatado");
+            Console.WriteLine("4. Prorrogação");
        
 
-            int opcaoDesempate = int.Parse(Console.ReadLine());
+           opcaoDesempate = int.Parse(Console.ReadLine());
 
             switch (opcaoDesempate)
             {
@@ -407,6 +538,12 @@ static void AbrirLinkArquivoWord()
                     Console.WriteLine("O jogo permanece empatado.");
                     break;
 
+
+                case 4:
+                    Prorrogacao();
+                    break;
+
+
                 default:
                     Console.WriteLine("Opção inválida. O jogo permanece empatado.");
                     break;
@@ -417,8 +554,354 @@ static void AbrirLinkArquivoWord()
 
 
 
-    
-   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+private static void Prorrogacao()
+{
+
+
+    Console.WriteLine("");
+    Console.WriteLine("");
+    Console.WriteLine("");
+    Console.WriteLine("");
+    Console.WriteLine("");
+    Console.WriteLine("");
+    Console.WriteLine("");
+    Console.WriteLine("");
+    Console.WriteLine("");
+    Console.WriteLine("");
+    Console.WriteLine("");
+    Console.WriteLine("");
+    Console.WriteLine("");
+    Console.WriteLine("");
+    Console.WriteLine("");
+    Console.WriteLine("");
+    Console.WriteLine("");
+    Console.WriteLine("");
+    Console.WriteLine("");
+
+
+    Console.WriteLine("Escolha o modo da prorrogação (1 - Jogador vs Computador, 2 - Jogador vs Jogador): ");
+    int resp = int.Parse(Console.ReadLine());
+
+    if (resp == 1)
+    {
+
+            
+
+            Console.WriteLine("Iniciando prorrogação...");
+
+            // Lógica da prorrogação
+            int[] cartasJogador1 = { 1, 2, 3 };
+            int[] cartasJogador2 = { 1, 2, 3 };
+
+            int energiaJogador1 = 0;
+            int energiaJogador2 = 0;
+
+            // Crie uma instância da classe JogoFutebol
+            JogoFutebol jogo = new JogoFutebol();
+
+            int pontosJogador1 = CalcularPontosPRO(cartasJogador1, "Jogador", ref energiaJogador1);
+            int pontosJogador2 = CalcularPontosPRO(cartasJogador2, "Computador", ref energiaJogador2);
+
+            // Exibindo resultado da prorrogação
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+
+            Console.WriteLine($"Resultado da prorrogação: Jogador {pontosJogador1} ponto(s) x Computador {pontosJogador2} ponto(s)");
+
+            if (pontosJogador1 > pontosJogador2)
+            { 
+                Console.WriteLine($"Resultado da prorrogação: ");
+                Console.WriteLine($"{jogo.jogador.Nome} - {pontosJogador1} ponto(s) x Computador - {pontosJogador2} ponto(s)");
+                Console.WriteLine("");                
+                Console.WriteLine($"PARABÉNS !!! {jogo.jogador.Nome} Venceu a prorrogação");
+            }
+            else if (pontosJogador2 > pontosJogador1)
+            { 
+                Console.WriteLine($"Resultado da prorrogação:");
+                Console.WriteLine($"{jogo.jogador.Nome} - {pontosJogador1} ponto(s) x Computador - {pontosJogador2} ponto(s)");
+                Console.WriteLine($"Computador Venceu a prorrogação");
+            }
+
+            // Determinando o vencedor
+            DeterminarVencedor(pontosJogador1, pontosJogador2, resp);
+      
+    }
+    else if (resp == 2)
+    {
+
+
+
+            Console.WriteLine("Iniciando prorrogação...");
+
+            // Lógica da prorrogação
+            int[] cartasJogador1 = { 1, 2, 3 };
+            int[] cartasJogador2 = { 1, 2, 3 };
+
+            int energiaJogador1 = 0;
+            int energiaJogador2 = 0;
+
+            JogoFutebol jogo = new JogoFutebol();
+
+            // Crie uma instância da classe JogoFutebol
+           
+
+            int pontosJogador1 = CalcularPontosPRO(cartasJogador1, "Jogador 1", ref energiaJogador1);
+            int pontosJogador2 = CalcularPontosPRO(cartasJogador2, "Jogador 2", ref energiaJogador2);
+
+            if (pontosJogador1 > pontosJogador2)
+            { 
+                Console.WriteLine($"Resultado da prorrogação: {jogo.jogador.Nome} - {pontosJogador1} ponto(s) x Jogador 2 {pontosJogador2} ponto(s)");
+                Console.WriteLine($"{jogo.jogador.Nome} Venceu a prorrogação");
+            }
+            else if (pontosJogador2 > pontosJogador1)
+            { 
+                Console.WriteLine($"Resultado da prorrogação: {jogo.jogador.Nome} - {pontosJogador1} ponto(s) x {jogo.jogador2.Nome} - {pontosJogador2} ponto(s)");
+                Console.WriteLine($"{jogo.jogador2.Nome}  Venceu a prorrogação");
+            }
+
+            // Determinando o vencedor
+            DeterminarVencedor(pontosJogador1, pontosJogador2, resp);
+      
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//DETERMINAR VENCEDOR DA PRORROGAÇÃO
+
+
+private static void DeterminarVencedor(int pontosJogador1, int pontosJogador2, int resp)
+{
+    // Lógica para determinar o vencedor após a prorrogação
+    if (pontosJogador1 > pontosJogador2)
+    {
+        Console.WriteLine($"Jogador {(resp == 1 ? "" : "1")} é o vencedor da prorrogação!");
+    }
+    else if (pontosJogador2 > pontosJogador1)
+    {
+        Console.WriteLine($"Jogador {(resp == 1 ? "Computador" : "2")} é o vencedor da prorrogação!");
+    }
+    else
+    {
+        Console.WriteLine("A prorrogação terminou em empate. Vai para a disputa de pênaltis ou outro critério de desempate.");
+
+        if (resp == 1)
+        {
+            Console.WriteLine("Iniciando a disputa de pênaltis...");
+
+            int pontosJogador1Penaltis = 0;
+            int pontosJogador2Penaltis = 0;
+
+            for (int i = 0; i < 5; i++)
+            {
+                Console.WriteLine($"Pênalti {i + 1}: Escolha o canto (1 - Esquerda, 2 - Centro, 3 - Direita) - Jogador");
+                int escolhaJogador = int.Parse(Console.ReadLine());
+
+                Random random = new Random();
+                int escolhaComputador = random.Next(1, 4);
+
+                if (escolhaJogador == escolhaComputador)
+                {
+                    Console.WriteLine("Jogador marcou o pênalti!");
+                    pontosJogador1Penaltis++;
+                }
+                else
+                {
+                    Console.WriteLine("Jogador errou o pênalti!");
+                }
+
+                Console.WriteLine($"Pênalti {i + 1}: Escolha o canto (1 - Esquerda, 2 - Centro, 3 - Direita) - Computador");
+                int escolhaComputadorPenaltis = random.Next(1, 4);
+
+                if (escolhaComputadorPenaltis == escolhaJogador)
+                {
+                    Console.WriteLine("Computador marcou o pênalti!");
+                    pontosJogador2Penaltis++;
+                }
+                else
+                {
+                    Console.WriteLine("Computador errou o pênalti!");
+                }
+            }
+
+            Console.WriteLine("---------------- Resultado Pênaltis -----------------");
+            Console.WriteLine($"Jogador: {pontosJogador1Penaltis} x {pontosJogador2Penaltis} :Computador");
+
+            if (pontosJogador1Penaltis > pontosJogador2Penaltis)
+            {
+                Console.WriteLine($"PARABÉNS, Jogador! Você venceu na disputa de pênaltis.");
+            }
+            else if (pontosJogador2Penaltis > pontosJogador1Penaltis)
+            {
+                Console.WriteLine($"PARABÉNS, Computador! Você venceu na disputa de pênaltis.");
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//CALCULAR PONTOS DA PRORROGAÇÃO
+
+private static int CalcularPontosPRO(int[] cartasJogador, string jogadorNome, ref int energia)
+{
+    Console.WriteLine($"{jogadorNome}, pressione ENTER para abrir as cartas");
+    Console.ReadLine();
+
+    int pontosRodada = 0;
+    Random random = new Random();
+
+    for (int i = 0; i < cartasJogador.Length; i++)
+    {
+        int cartaSelecionada = random.Next(1, 6); // Gera um número aleatório entre 1 e 5
+
+        Console.WriteLine($"Carta {i + 1}: {cartaSelecionada}");
+
+        switch (cartaSelecionada)
+        {
+            case 1:
+                Console.WriteLine("GOL - 3 pontos");
+                pontosRodada += 3;
+                break;
+            case 2:
+                Console.WriteLine("Pênalti - 2 pontos");
+
+                Console.WriteLine("PENALTI!!!! ESCOLHA O CANTO PARA BATER. (1-ESQUERDA 2-CENTRO 3-DIREITO) - " + jogadorNome);
+                int respPenalti = int.Parse(Console.ReadLine());
+
+                int penalti = random.Next(1, 4);
+
+                if (respPenalti == penalti)
+                {
+                    Console.WriteLine("GOL!!!! Você ganhou 2 pontos");
+                    pontosRodada += 2;
+                }
+                else
+                {
+                    Console.WriteLine("ERROU!");
+                }
+                break;
+            case 3:
+                Console.WriteLine("Falta - 1 ponto");
+                pontosRodada += 1;
+                break;
+            case 4:
+                Console.WriteLine("Cartão Amarelo - 1 ponto");
+                pontosRodada += 1;
+                break;
+            case 5:
+                Console.WriteLine("Cartão Vermelho - 0 pontos");
+                break;
+            default:
+                Console.WriteLine("Carta desconhecida");
+                break;
+        }
+
+        Console.ReadLine();
+    }
+
+    Console.WriteLine($"Total de pontos na rodada: {pontosRodada}");
+    return pontosRodada;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -427,7 +910,62 @@ static void AbrirLinkArquivoWord()
     {
 
 
-        
+
+        if (resp==1){
+         Console.WriteLine("Iniciando a disputa de pênaltis...");
+
+        int pontosJogador1 = 0;
+        int pontosJogador2 = 0;
+
+        for (int i = 0; i < 5; i++)
+        {
+            Console.WriteLine($"Pênalti {i + 1}: Escolha o canto (1 - Esquerda, 2 - Centro, 3 - Direita) - {jogador.Nome}");
+            int escolhaJogador = int.Parse(Console.ReadLine());
+
+            Random random = new Random();
+            int escolhaSorte = random.Next(1, 4);
+
+
+
+            if (escolhaJogador == escolhaSorte)
+            {
+                Console.WriteLine($"{jogador.Nome} marcou o pênalti!");
+                pontosJogador1++;
+            }
+            else
+            {
+                Console.WriteLine($"{jogador.Nome} errou o pênalti!");
+            }
+
+            Console.WriteLine("Computador fez a sua escolha");
+
+            int escolhaComputador = random.Next(1, 4);
+
+            if (escolhaComputador == escolhaSorte){ 
+                Console.WriteLine($"Computador marcou o pênalti!");
+            }else{ 
+                Console.WriteLine($"Computador errou o pênalti!");
+            }
+
+
+        }
+
+
+        Console.WriteLine("---------------- Resultado Pênaltis -----------------");
+        Console.WriteLine($"{jogador.Nome}: {pontosJogador1} x {pontosJogador2} :Computador");
+
+        if (pontosJogador1 > pontosJogador2)
+        {
+            Console.WriteLine($"PARABÉNS, {jogador.Nome}! Você venceu na disputa de pênaltis.");
+        }
+        else if (pontosJogador2 > pontosJogador1)
+        {
+            Console.WriteLine($"PARABÉNS, Computador venceu na disputa de pênaltis.");
+        }
+        }
+
+
+        if (resp==2){
         Console.WriteLine("Iniciando a disputa de pênaltis...");
 
         int pontosJogador1 = 0;
@@ -486,23 +1024,64 @@ static void AbrirLinkArquivoWord()
         {
             Console.WriteLine($"PARABÉNS, {jogador2.Nome}! Você venceu na disputa de pênaltis.");
         }
+        }
     }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //G0L DE OURO
+
+
+
     private void GolDeOuro()
+{
+
+
+
+    Console.WriteLine("Iniciando o Gol de Ouro...");
+
+    int golsJogador1 = 0;
+    int golsJogador2 = 0;
+
+    while (true)
     {
-        Console.WriteLine("Iniciando o Gol de Ouro...");
-
-        int golsJogador1 = 0;
-        int golsJogador2 = 0;
-
-        while (true)
+        if (resp == 1)
         {
 
-            
-
-            Console.WriteLine($"Jogada: jogador está perto de marca na área adversária (1 - Esquerda, 2 - Centro, 3 - Direita) - {jogador.Nome}");
+              for (int i = 0; i < 5; i++){
+            Console.WriteLine($"Jogada: jogador está perto de marcar na área adversária (1 - Esquerda, 2 - Centro, 3 - Direita) - {jogador.Nome}");
             int escolhaJogador = int.Parse(Console.ReadLine());
 
             Random random = new Random();
@@ -521,42 +1100,78 @@ static void AbrirLinkArquivoWord()
                 Console.WriteLine($"{jogador.Nome} errou o gol de ouro!");
             }
 
-            Console.WriteLine($"Jogada:  jogador está perto de marca na área adversária (1 - Esquerda, 2 - Centro, 3 - Direita) - {jogador2.Nome}");
-            int escolhaJogador2 = int.Parse(Console.ReadLine());
-
             escolhaComputador = random.Next(1, 4);
 
             Console.WriteLine($"O Computador escolheu o canto {escolhaComputador}");
 
-            if (escolhaJogador2 == escolhaComputador)
+            Console.WriteLine("---------------- Resultado Gol de Ouro -----------------");
+            Console.WriteLine($"{jogador.Nome}: {golsJogador1} x {golsJogador2} : Computador");
+
+            if (golsJogador1 > golsJogador2)
             {
-                Console.WriteLine($"{jogador2.Nome} marcou o gol de ouro!");
-                golsJogador2++;
-                break;
+                Console.WriteLine($"PARABÉNS, {jogador.Nome}! Você venceu no gol de ouro.");
+            }
+            else if (golsJogador2 > golsJogador1)
+            {
+                Console.WriteLine($"PARABÉNS, Computador! Você venceu no gol de ouro.");
             }
             else
             {
-                Console.WriteLine($"{jogador2.Nome} errou o gol de ouro!");
+                Console.WriteLine("O gol de ouro também terminou empatado. Vamos para o próximo desempate.");
+                DisputaPenaltis();
+            }
+          }
+        }
+        else if (resp == 2)
+        {
+
+
+            for (int i = 0; i < 5; i++){
+            Random random = new Random();
+            int VezDoJogador = random.Next(1, 2);
+
+            if (VezDoJogador == 1)
+            {
+                // Jogador 1
+                Console.WriteLine($"Jogada: jogador está perto de marcar na área adversária (1 - Esquerda, 2 - Centro, 3 - Direita) - {jogador.Nome}");
+                int escolhaJogador = int.Parse(Console.ReadLine());
+
+                // Jogador 2
+                Console.WriteLine($"Jogada: jogador está perto de marcar na área adversária (1 - Esquerda, 2 - Centro, 3 - Direita) - {jogador2.Nome}");
+                int escolhaJogador2 = int.Parse(Console.ReadLine());
+
+                int placarOuro = random.Next(0, 3);
+
+                Console.WriteLine("---------------- Resultado Gol de Ouro -----------------");
+                Console.WriteLine($"{jogador.Nome}: {golsJogador1} x {golsJogador2} : {jogador2.Nome}");
+
+                if (golsJogador1 > golsJogador2)
+                {
+                    Console.WriteLine($"PARABÉNS, {jogador.Nome}! Você venceu no gol de ouro.");
+                }
+                else if (golsJogador2 > golsJogador1)
+                {
+                    Console.WriteLine($"PARABÉNS, {jogador2.Nome}! Você venceu no gol de ouro.");
+                }
+                else
+                {
+                    Console.WriteLine("O gol de ouro também terminou empatado. Vamos para o próximo desempate.");
+                    DisputaPenaltis();
+                }
+            }
             }
         }
-
-        Console.WriteLine("---------------- Resultado Gol de Ouro -----------------");
-        Console.WriteLine($"{jogador.Nome}: {golsJogador1} x {golsJogador2} :{jogador2.Nome}");
-
-        if (golsJogador1 > golsJogador2)
-        {
-            Console.WriteLine($"PARABÉNS, {jogador.Nome}! Você venceu no gol de ouro.");
-        }
-        else if (golsJogador2 > golsJogador1)
-        {
-            Console.WriteLine($"PARABÉNS, {jogador2.Nome}! Você venceu no gol de ouro.");
-        }
-        else
-        {
-            Console.WriteLine("O gol de ouro também terminou empatado. Vamos para o próximo desempate.");
-            DisputaPenaltis();
-        }
     }
+
+    
+    }
+
+
+
+
+
+
+
 
 
 
@@ -567,6 +1182,17 @@ static void AbrirLinkArquivoWord()
         Console.WriteLine($"Placar de pontos: {nomeJogador1} ({pontosJogador1}) - {nomeJogador2} ({pontosJogador2})");
     }
 
+
+
+
+
+
+
+
+
+
+
+
 //PLACAR DE ENERGIA
 
     private void ExibirStatus(int energiaJogador1, string nomeJogador2, int energiaJogador2, int pontosJogador1, int pontosJogador2)
@@ -576,7 +1202,26 @@ static void AbrirLinkArquivoWord()
         ExibirPlacar(jogador.Nome, nomeJogador2, pontosJogador1, pontosJogador2);
     }
 
-//CONVERTER PONTOS EM GOLS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Atualizar quando o jogador faz gol ou ganha pontos
 
     private void AtualizarGols(ref int golsJogador, ref int golsComputador, int pontosJogador, int pontosComputador)
     {
@@ -592,6 +1237,19 @@ static void AbrirLinkArquivoWord()
         }
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 //GERAR CARTAS ALEATÓRIAS PARA O JOGADOR QUE FOR ABRIR
     private int[] GerarCartasAleatorias(Random random)
     {
@@ -602,6 +1260,21 @@ static void AbrirLinkArquivoWord()
         }
         return cartas;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //CALCULAR OS PONTOS CASO AS CARTAS FOREM IGUAIS
@@ -701,7 +1374,18 @@ static void AbrirLinkArquivoWord()
             Console.WriteLine("Cartas diferentes, nenhum ponto é repassado");
             return 0;
         }
+
     }
+
+    
+
+
+
+
+
+
+
+
 }
 
 class Jogador

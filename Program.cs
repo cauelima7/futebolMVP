@@ -116,15 +116,15 @@ class JogoFutebol
 
         
         Console.ForegroundColor = ConsoleColor.Yellow;
-        Console.WriteLine("----------------Futebol Score------------------");
+        Console.WriteLine("----------------------------------------------------------------------------------------------------------------Futebol Score-----------------------------------------------------------------------------------------------------------------------");
         Console.ResetColor();
-        Console.WriteLine($"1. {jogador.Nome} x Computador");
-        Console.WriteLine($"2. {jogador.Nome}  x {jogador2.Nome}");
-        Console.WriteLine($"3. CRÉDITOS E MAIS INFORMAÇÕES");
+        Console.WriteLine($"                                                                                                    1. {jogador.Nome} x Computador");
+        Console.WriteLine($"                                                                                                    2. {jogador.Nome}  x {jogador2.Nome}");
+        Console.WriteLine($"                                                                                                    3. CRÉDITOS E MAIS INFORMAÇÕES");
         Console.ForegroundColor = ConsoleColor.Yellow;
-        Console.WriteLine("-----------------------------------------------");
+        Console.WriteLine("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
         Console.ResetColor();
-        Console.WriteLine("Escolha uma das opções (1 ou 2)");
+        Console.WriteLine("                                                                                                       Escolha uma das opções (1 ou 2)");
         resp = int.Parse(Console.ReadLine());
         Console.ResetColor();
 

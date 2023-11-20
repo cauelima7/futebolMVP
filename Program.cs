@@ -1277,43 +1277,101 @@ private static int CalcularPontosPRO(int[] cartasJogador, string jogadorNome, re
 
 
 
-//CALCULAR OS PONTOS CASO AS CARTAS FOREM IGUAIS
+//CALCULAR OS PONTOS CASO AS CARTAS FOREM IGUAIS corrijido***
 
     private int CalcularPontos(int[] cartasJogador, string jogadorNome, ref int energia)
     {
-        Console.WriteLine($"{jogadorNome}, pressione ENTER para abrir as cartas");
-        Console.ReadLine();
+       
+  int cartasIguais = 0;
 
-        int cartasIguais = 0;
+       if (jogadorNome == "Computador")
+{
+    LimparTela();
+    Console.WriteLine($"{jogadorNome} jogando");
 
-        for (int i = 0; i < cartasJogador.Length; i++)
+  
+
+    for (int i = 0; i < cartasJogador.Length; i++)
+    {
+        Console.WriteLine($"Carta {i + 1}: {cartasJogador[i]}");
+
+        if (cartasJogador[i] == 1)
         {
-            Console.WriteLine($"Carta {i + 1}: {cartasJogador[i]}");
-
-
-            if (cartasJogador[i] == 1){ 
-                Console.WriteLine("GOl");
-            }else if (cartasJogador[i] == 2){ 
-                Console.WriteLine("Pênalti");
-            }else if (cartasJogador[i] == 3){ 
-                Console.WriteLine("Falta");
-            }else if (cartasJogador[i] == 4){ 
-                Console.WriteLine("Cartão amarelo");
-            }else if (cartasJogador[i] == 5){ 
-                Console.WriteLine("Cartão vermelho");
-            }else if (cartasJogador[i] == 6){ 
-                Console.WriteLine("Energia");
-            }
-
-            
-
-            if (i > 0 && cartasJogador[i] == cartasJogador[i - 1])
-            {
-                cartasIguais++;
-            }
-
-            Console.ReadLine();
+            Console.WriteLine("Gol");
         }
+        else if (cartasJogador[i] == 2)
+        {
+            Console.WriteLine("Pênalti");
+        }
+        else if (cartasJogador[i] == 3)
+        {
+            Console.WriteLine("Falta");
+        }
+        else if (cartasJogador[i] == 4)
+        {
+            Console.WriteLine("Cartão amarelo");
+        }
+        else if (cartasJogador[i] == 5)
+        {
+            Console.WriteLine("Cartão vermelho");
+        }
+        else if (cartasJogador[i] == 6)
+        {
+            Console.WriteLine("Energia");
+        }
+
+        if (i > 0 && cartasJogador[i] == cartasJogador[i - 1])
+        {
+            cartasIguais++;
+        }
+     
+    }
+       Console.ReadLine();
+}
+else
+{
+
+
+    Console.WriteLine($"{jogadorNome}, pressione ENTER para abrir as cartas");
+    Console.ReadLine();
+
+    for (int i = 0; i < cartasJogador.Length; i++)
+    {
+        Console.WriteLine($"Carta {i + 1}: {cartasJogador[i]}");
+
+        if (cartasJogador[i] == 1)
+        {
+            Console.WriteLine("Gol");
+        }
+        else if (cartasJogador[i] == 2)
+        {
+            Console.WriteLine("Pênalti");
+        }
+        else if (cartasJogador[i] == 3)
+        {
+            Console.WriteLine("Falta");
+        }
+        else if (cartasJogador[i] == 4)
+        {
+            Console.WriteLine("Cartão amarelo");
+        }
+        else if (cartasJogador[i] == 5)
+        {
+            Console.WriteLine("Cartão vermelho");
+        }
+        else if (cartasJogador[i] == 6)
+        {
+            Console.WriteLine("Energia");
+        }
+
+        if (i > 0 && cartasJogador[i] == cartasJogador[i - 1])
+        {
+            cartasIguais++;
+        }
+
+        Console.ReadLine();
+    }
+}
 
 
         //CASO AS CARTAS FOREM IGUAIS

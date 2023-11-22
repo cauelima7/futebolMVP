@@ -134,6 +134,64 @@ static void DrawLoadingBar(int percentage)
 
 
 
+ static void AsciiArt2()
+    {
+        string filePath = "asci2.txt";
+
+        try
+        {
+            using (StreamReader sr = new StreamReader(filePath))
+            {
+                int contador = 0;
+                string line;
+
+                while ((line = sr.ReadLine()) != null)
+                {
+                    contador++;
+                    Console.SetCursorPosition(1, contador);
+                    Console.WriteLine(line);
+                }
+            }
+        }
+        catch (IOException e)
+        {
+            Console.WriteLine($"Ocorreu um erro ao ler o arquivo: {e.Message}");
+        }
+    }
+
+
+
+ static void AsciiArt3()
+    {
+        string filePath = "asci3.txt";
+
+        try
+        {
+            using (StreamReader sr = new StreamReader(filePath))
+            {
+                int contador = 0;
+                string line;
+
+                while ((line = sr.ReadLine()) != null)
+                {
+                    contador++;
+                    Console.SetCursorPosition(1, contador);
+                    Console.WriteLine(line);
+                }
+            }
+        }
+        catch (IOException e)
+        {
+            Console.WriteLine($"Ocorreu um erro ao ler o arquivo: {e.Message}");
+        }
+    }
+
+
+
+
+
+
+
 
 
 //INICIAR O JOGO
@@ -165,8 +223,18 @@ static void DrawLoadingBar(int percentage)
             DrawLoadingBar(i);
             Thread.Sleep(200); 
 
+            if (i == 20){ 
+                LimparTela();
+                AsciiArt3();
+            }else if (i == 50){ 
+                LimparTela();
+                AsciiArt2();
+            }
 
         }
+
+
+
 
         LimparTela();
 

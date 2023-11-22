@@ -187,6 +187,57 @@ static void DrawLoadingBar(int percentage)
     }
 
 
+ static void AsciiArt4()
+    {
+        string filePath = "asci4.txt";
+
+        try
+        {
+            using (StreamReader sr = new StreamReader(filePath))
+            {
+                int contador = 0;
+                string line;
+
+                while ((line = sr.ReadLine()) != null)
+                {
+                    contador++;
+                    Console.SetCursorPosition(1, contador);
+                    Console.WriteLine(line);
+                }
+            }
+        }
+        catch (IOException e)
+        {
+            Console.WriteLine($"Ocorreu um erro ao ler o arquivo: {e.Message}");
+        }
+    }
+
+
+ static void AsciiArt5()
+    {
+        string filePath = "asci5.txt";
+
+        try
+        {
+            using (StreamReader sr = new StreamReader(filePath))
+            {
+                int contador = 0;
+                string line;
+
+                while ((line = sr.ReadLine()) != null)
+                {
+                    contador++;
+                    Console.SetCursorPosition(1, contador);
+                    Console.WriteLine(line);
+                }
+            }
+        }
+        catch (IOException e)
+        {
+            Console.WriteLine($"Ocorreu um erro ao ler o arquivo: {e.Message}");
+        }
+    }
+
 
 
 
@@ -201,6 +252,28 @@ static void DrawLoadingBar(int percentage)
         int pontosComputador = 0;
         int golsJogador = 0;
         int golsComputador = 0;
+
+        
+        Console.WriteLine("Loading...");
+
+        for (int i = 0; i <= 100; i += 10)
+        {
+            DrawLoadingBar(i);
+            Thread.Sleep(200); 
+
+            if (i == 20){ 
+                LimparTela();
+                AsciiArt4();
+            }else if (i == 50){ 
+                LimparTela();
+                AsciiArt5();
+            }
+
+        }
+
+        Console.ReadLine();
+        LimparTela();
+
    
 
         Console.ForegroundColor = ConsoleColor.Green;

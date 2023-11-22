@@ -8,6 +8,7 @@ class Program
     static void Main(string[] args)
     {
         bool jogarNovamente = true;
+        
 
         while (jogarNovamente)
         {
@@ -42,6 +43,9 @@ class JogoFutebol
     private int golsJogador2 = 0;
     private int pontosJogador1 = 0;
     private int pontosJogador2 = 0;
+
+    private int energiaJogador;
+    private int energiaComputador;
 
 
     private int golsJogador;
@@ -103,6 +107,7 @@ class JogoFutebol
         int pontosComputador = 0;
         int golsJogador = 0;
         int golsComputador = 0;
+   
 
         Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine("Digite o seu nome");
@@ -137,14 +142,16 @@ class JogoFutebol
                 //implementar a lógica para Computador X Jogador ****FEITO
                 JogarPartidaContraComputador(ref pontosJogador, ref pontosComputador, ref golsJogador, ref golsComputador);
                 
-                ExibirResultado(jogador.Nome, "Computador", golsJogador, golsComputador,pontosJogador, pontosComputador);
+                ExibirResultado(jogador.Nome, "Computador", golsJogador, golsComputador, pontosJogador, pontosComputador, energiaJogador, energiaComputador);
+
                 ExibirPlacar(jogador.Nome, "Computador", pontosJogador, pontosComputador);
                 break;
             case 2:
                 // Implementar a lógica para jogadores x jogadores ****FEITO
                  JogarPartidaEntreJogadores(ref pontosJogador, ref pontosComputador, ref golsJogador, ref golsComputador);
 
-                 ExibirResultado(jogador.Nome, "Computador", golsJogador, golsComputador,pontosJogador, pontosComputador);
+                 ExibirResultado(jogador.Nome, "Computador", golsJogador, golsComputador, pontosJogador, pontosComputador, energiaJogador, energiaComputador);
+
                  ExibirPlacar(jogador.Nome, "Computador", pontosJogador, pontosComputador);
                 break;
 
@@ -300,6 +307,56 @@ static void AbrirLinkArquivoWord()
 
         AtualizarGols(ref golsJogador, ref golsComputador, pontosJogador, pontosComputador);
         Console.WriteLine("Fim de jogo!");
+
+        if (pontosJogador == pontosComputador)
+    {
+        if (energiaJogador1 > energiaJogador2)
+        {
+            Console.WriteLine($"{jogador.Nome} venceu por ter mais energias!");
+
+
+
+        Console.WriteLine("------------------------------------------");
+        Console.WriteLine("            '._==_==_=_.'");
+        Console.WriteLine("            .-\\:      /-.");
+        Console.WriteLine("           | (|:.     |) |");
+        Console.WriteLine("            '-|:.     |-'");
+        Console.WriteLine("              \\::.    /");
+        Console.WriteLine("               '::. .'");
+        Console.WriteLine("                 ) (");
+        Console.WriteLine("               _.' '._");
+        Console.WriteLine("------------------------------------------");
+
+
+        }
+        else if (energiaJogador2 > energiaJogador1)
+        {
+            Console.WriteLine($"{jogador2.Nome} venceu por ter mais energias!");
+
+
+        Console.WriteLine("------------------------------------------");
+        Console.WriteLine("            '._==_==_=_.'");
+        Console.WriteLine("            .-\\:      /-.");
+        Console.WriteLine("           | (|:.     |) |");
+        Console.WriteLine("            '-|:.     |-'");
+        Console.WriteLine("              \\::.    /");
+        Console.WriteLine("               '::. .'");
+        Console.WriteLine("                 ) (");
+        Console.WriteLine("               _.' '._");
+        Console.WriteLine("------------------------------------------");
+
+
+
+        }
+        else
+        {
+            Console.WriteLine("Empate! Ambos os jogadores têm a mesma pontuação e energia.");
+        }
+    }
+    else
+    {
+        Console.WriteLine("Fim de jogo!");
+    }
     }
 
 
@@ -366,7 +423,8 @@ static void AbrirLinkArquivoWord()
             //--------------------------------------------------------------------------------------------------------------------------\\
 
             //-------------------------------Vez do Computador de jogar ***FEITO-------------------------------------------------------\\
-            Console.ForegroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = ConsoleColor.Red;
+
             Console.WriteLine($"Vez do Computador");
             Console.ResetColor();
 
@@ -384,6 +442,48 @@ static void AbrirLinkArquivoWord()
         }
         AtualizarGols(ref golsJogador, ref golsComputador, pontosJogador, pontosComputador);
         Console.WriteLine("Fim de jogo!");
+
+
+        if (pontosJogador == pontosComputador)
+    {
+        if (energiaJogador > energiaComputador)
+        {
+            Console.WriteLine($"{jogador.Nome} venceu por ter mais energias!");
+
+
+        Console.WriteLine("------------------------------------------");
+        Console.WriteLine("            '._==_==_=_.'");
+        Console.WriteLine("            .-\\:      /-.");
+        Console.WriteLine("           | (|:.     |) |");
+        Console.WriteLine("            '-|:.     |-'");
+        Console.WriteLine("              \\::.    /");
+        Console.WriteLine("               '::. .'");
+        Console.WriteLine("                 ) (");
+        Console.WriteLine("               _.' '._");
+        Console.WriteLine("------------------------------------------");
+
+        }
+        else if (energiaComputador > energiaJogador)
+        {
+            Console.WriteLine("Computador venceu por ter mais energias!");
+
+
+
+
+
+
+
+        }
+        else
+        {
+            Console.WriteLine("Empate! Ambos têm a mesma pontuação e energia.");
+        }
+    }
+    else
+    {
+        Console.WriteLine("Fim de jogo!");
+    }
+
 
     
     }
@@ -421,32 +521,60 @@ static void AbrirLinkArquivoWord()
 
 
 
-//EXIBIR RESULTADO DE AMBOS JOGADORES
-    private void ExibirResultado(string nomeJogador1, string nomeJogador2, int golsJogador1, int golsJogador2, int pontosJogador, int pontosComputador)
+//EXIBIR RESULTADO DE AMBOS JOGADORES]
+
+
+   private void ExibirResultado(string nomeJogador1, string nomeJogador2, int golsJogador1, int golsJogador2, int pontosJogador, int pontosComputador, int energiaJogador, int energiaComputador)
     {
         Console.ReadLine();
         LimparTela();
 
         if (resp == 1){
-    
+        
+        Console.ForegroundColor = ConsoleColor.Yellow;
         Console.WriteLine("---------------------- Resultado Jogador x Computador (Caso escolheu 1)----------------------");
-        Console.WriteLine($"Pontos de {nomeJogador1}: {pontosJogador}");
-        Console.WriteLine($"Pontos de {nomeJogador2}: {pontosComputador}");
+
+   
+
+        Console.ResetColor();
+        Console.WriteLine($"Pontos de {nomeJogador1}: {pontosJogador} | Energias: {energiaJogador}");
+        Console.WriteLine($"Pontos de {nomeJogador2}: {pontosComputador} | Energias: {energiaComputador}");
         Console.WriteLine($"GOLS de {nomeJogador1}: {golsJogador1}");
         Console.WriteLine($"GOLS de {nomeJogador2}: {golsJogador2}");
+        Console.ForegroundColor = ConsoleColor.Yellow;
         Console.WriteLine("----------------------------------------------------------------------------------------------");
+        Console.ResetColor();
         }
         
         else if (resp == 2){
    
-
+        Console.ForegroundColor = ConsoleColor.Yellow;
         Console.WriteLine("---------------------- Resultado Jogador x jogador 2 (Caso escolheu 2)----------------------");
-        Console.WriteLine($"Pontos de {jogador.Nome}: {pontosJogador}");
-        Console.WriteLine($"Pontos de {jogador2.Nome}: {pontosComputador}");
+
+
+
+        Console.WriteLine("            '._==_==_=_.'");
+        Console.WriteLine("            .-\\:      /-.");
+        Console.WriteLine("           | (|:.     |) |");
+        Console.WriteLine("            '-|:.     |-'");
+        Console.WriteLine("              \\::.    /");
+        Console.WriteLine("               '::. .'");
+        Console.WriteLine("                 ) (");
+        Console.WriteLine("               _.' '._");
+
+
+
+
+
+
+        Console.ResetColor();
+        Console.WriteLine($"Pontos de {jogador.Nome}: {pontosJogador} | Energias: {energiaJogador}");
+        Console.WriteLine($"Pontos de {jogador2.Nome}: {pontosComputador} | Energias: {energiaComputador}");
         Console.WriteLine($"GOLS de {jogador.Nome}: {golsJogador1}");
         Console.WriteLine($"GOLS de {jogador2.Nome}: {golsJogador2}");
-        Console.WriteLine("--------------------------------------------------------");
-
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.WriteLine("---------------------------------------------------------------------------------------------");
+        Console.ResetColor();
 
 
          if (resp == 2 && golsJogador1 > golsJogador2 && pontosJogador>pontosComputador || golsJogador1 > golsJogador2 && pontosJogador<pontosComputador || golsJogador1 == golsJogador2 && pontosJogador>pontosComputador )
@@ -507,11 +635,41 @@ static void AbrirLinkArquivoWord()
         {
             Console.WriteLine($"PARABÉNS, {nomeJogador1}! VOCÊ VENCEU COM {golsJogador1} GOLS.");
             Console.WriteLine($"{nomeJogador1}: {pontosJogador} pontos.");
+
+
+        Console.ForegroundColor = ConsoleColor.Yellow;    
+        Console.WriteLine("            '._==_==_=_.'");
+        Console.WriteLine("            .-\\:      /-.");
+        Console.WriteLine("           | (|:.     |) |");
+        Console.WriteLine("            '-|:.     |-'");
+        Console.WriteLine("              \\::.    /");
+        Console.WriteLine("               '::. .'");
+        Console.WriteLine("                 ) (");
+        Console.WriteLine("               _.' '._");
+        Console.ResetColor();
+
+
+
         }
         else if (resp == 1 && golsJogador2 > golsJogador1 && pontosComputador>pontosJogador || golsJogador2 > golsJogador1 && pontosComputador<pontosJogador ||golsJogador2 == golsJogador1 && pontosComputador>pontosJogador  )
         {
             Console.WriteLine($"{nomeJogador2} VENCEU COM {golsJogador2} GOLS.");
             Console.WriteLine($"{nomeJogador2}: {pontosComputador} pontos.");
+
+
+        Console.ForegroundColor = ConsoleColor.Yellow;    
+        Console.WriteLine("            '._==_==_=_.'");
+        Console.WriteLine("            .-\\:      /-.");
+        Console.WriteLine("           | (|:.     |) |");
+        Console.WriteLine("            '-|:.     |-'");
+        Console.WriteLine("              \\::.    /");
+        Console.WriteLine("               '::. .'");
+        Console.WriteLine("                 ) (");
+        Console.WriteLine("               _.' '._");
+        Console.ResetColor();
+
+
+
         }
         else if (resp == 1 && golsJogador == golsJogador2 && pontosComputador == pontosJogador)
         {
@@ -647,12 +805,48 @@ private static void Prorrogacao()
                 Console.WriteLine($"{jogo.jogador.Nome} - {pontosJogador1} ponto(s) x Computador - {pontosJogador2} ponto(s)");
                 Console.WriteLine("");                
                 Console.WriteLine($"PARABÉNS !!! {jogo.jogador.Nome} Venceu a prorrogação");
+
+
+        Console.ForegroundColor = ConsoleColor.Yellow;    
+        Console.WriteLine("            '._==_==_=_.'");
+        Console.WriteLine("            .-\\:      /-.");
+        Console.WriteLine("           | (|:.     |) |");
+        Console.WriteLine("            '-|:.     |-'");
+        Console.WriteLine("              \\::.    /");
+        Console.WriteLine("               '::. .'");
+        Console.WriteLine("                 ) (");
+        Console.WriteLine("               _.' '._");
+        Console.ResetColor();
+                        
+
+
+
+
+
             }
             else if (pontosJogador2 > pontosJogador1)
             { 
                 Console.WriteLine($"Resultado da prorrogação:");
                 Console.WriteLine($"{jogo.jogador.Nome} - {pontosJogador1} ponto(s) x Computador - {pontosJogador2} ponto(s)");
-                Console.WriteLine($"Computador Venceu a prorrogação");
+                Console.WriteLine($"Computador Venceu a prorrogação"); 
+
+
+        Console.ForegroundColor = ConsoleColor.Yellow;    
+        Console.WriteLine("            '._==_==_=_.'");
+        Console.WriteLine("            .-\\:      /-.");
+        Console.WriteLine("           | (|:.     |) |");
+        Console.WriteLine("            '-|:.     |-'");
+        Console.WriteLine("              \\::.    /");
+        Console.WriteLine("               '::. .'");
+        Console.WriteLine("                 ) (");
+        Console.WriteLine("               _.' '._");
+        Console.ResetColor();
+
+
+
+
+
+
             }
 
             // Determinando o vencedor
@@ -685,11 +879,44 @@ private static void Prorrogacao()
             { 
                 Console.WriteLine($"Resultado da prorrogação: {jogo.jogador.Nome} - {pontosJogador1} ponto(s) x Jogador 2 {pontosJogador2} ponto(s)");
                 Console.WriteLine($"{jogo.jogador.Nome} Venceu a prorrogação");
+
+
+        Console.ForegroundColor = ConsoleColor.Yellow;    
+        Console.WriteLine("            '._==_==_=_.'");
+        Console.WriteLine("            .-\\:      /-.");
+        Console.WriteLine("           | (|:.     |) |");
+        Console.WriteLine("            '-|:.     |-'");
+        Console.WriteLine("              \\::.    /");
+        Console.WriteLine("               '::. .'");
+        Console.WriteLine("                 ) (");
+        Console.WriteLine("               _.' '._");
+        Console.ResetColor();
+
+
+
+
+
             }
             else if (pontosJogador2 > pontosJogador1)
             { 
                 Console.WriteLine($"Resultado da prorrogação: {jogo.jogador.Nome} - {pontosJogador1} ponto(s) x {jogo.jogador2.Nome} - {pontosJogador2} ponto(s)");
                 Console.WriteLine($"{jogo.jogador2.Nome}  Venceu a prorrogação");
+
+
+
+        Console.ForegroundColor = ConsoleColor.Yellow;    
+        Console.WriteLine("            '._==_==_=_.'");
+        Console.WriteLine("            .-\\:      /-.");
+        Console.WriteLine("           | (|:.     |) |");
+        Console.WriteLine("            '-|:.     |-'");
+        Console.WriteLine("              \\::.    /");
+        Console.WriteLine("               '::. .'");
+        Console.WriteLine("                 ) (");
+        Console.WriteLine("               _.' '._");
+        Console.ResetColor();
+
+
+
             }
 
             // Determinando o vencedor
@@ -789,10 +1016,42 @@ private static void DeterminarVencedor(int pontosJogador1, int pontosJogador2, i
             if (pontosJogador1Penaltis > pontosJogador2Penaltis)
             {
                 Console.WriteLine($"PARABÉNS, Jogador! Você venceu na disputa de pênaltis.");
+
+        Console.ForegroundColor = ConsoleColor.Yellow;    
+        Console.WriteLine("            '._==_==_=_.'");
+        Console.WriteLine("            .-\\:      /-.");
+        Console.WriteLine("           | (|:.     |) |");
+        Console.WriteLine("            '-|:.     |-'");
+        Console.WriteLine("              \\::.    /");
+        Console.WriteLine("               '::. .'");
+        Console.WriteLine("                 ) (");
+        Console.WriteLine("               _.' '._");
+        Console.ResetColor();
+
+
+
+
             }
             else if (pontosJogador2Penaltis > pontosJogador1Penaltis)
             {
                 Console.WriteLine($"PARABÉNS, Computador! Você venceu na disputa de pênaltis.");
+
+
+        Console.ForegroundColor = ConsoleColor.Yellow;    
+        Console.WriteLine("            '._==_==_=_.'");
+        Console.WriteLine("            .-\\:      /-.");
+        Console.WriteLine("           | (|:.     |) |");
+        Console.WriteLine("            '-|:.     |-'");
+        Console.WriteLine("              \\::.    /");
+        Console.WriteLine("               '::. .'");
+        Console.WriteLine("                 ) (");
+        Console.WriteLine("               _.' '._");
+        Console.ResetColor();
+       
+
+
+
+
             }
         }
     }
@@ -1075,8 +1334,7 @@ private static int CalcularPontosPRO(int[] cartasJogador, string jogadorNome, re
     int golsJogador1 = 0;
     int golsJogador2 = 0;
 
-    while (true)
-    {
+   
         if (resp == 1)
         {
 
@@ -1104,6 +1362,8 @@ private static int CalcularPontosPRO(int[] cartasJogador, string jogadorNome, re
 
             Console.WriteLine($"O Computador escolheu o canto {escolhaComputador}");
 
+            }
+
             Console.WriteLine("---------------- Resultado Gol de Ouro -----------------");
             Console.WriteLine($"{jogador.Nome}: {golsJogador1} x {golsJogador2} : Computador");
 
@@ -1121,7 +1381,7 @@ private static int CalcularPontosPRO(int[] cartasJogador, string jogadorNome, re
                 DisputaPenaltis();
             }
           }
-        }
+       
         else if (resp == 2)
         {
 
@@ -1133,24 +1393,49 @@ private static int CalcularPontosPRO(int[] cartasJogador, string jogadorNome, re
             if (VezDoJogador == 1)
             {
                 // Jogador 1
+
+
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
+
                 Console.WriteLine($"Jogada: jogador está perto de marcar na área adversária (1 - Esquerda, 2 - Centro, 3 - Direita) - {jogador.Nome}");
                 int escolhaJogador = int.Parse(Console.ReadLine());
 
                 // Jogador 2
+
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
+                        
                 Console.WriteLine($"Jogada: jogador está perto de marcar na área adversária (1 - Esquerda, 2 - Centro, 3 - Direita) - {jogador2.Nome}");
                 int escolhaJogador2 = int.Parse(Console.ReadLine());
 
                 int placarOuro = random.Next(0, 3);
+
+
+                }
 
                 Console.WriteLine("---------------- Resultado Gol de Ouro -----------------");
                 Console.WriteLine($"{jogador.Nome}: {golsJogador1} x {golsJogador2} : {jogador2.Nome}");
 
                 if (golsJogador1 > golsJogador2)
                 {
+                    Console.WriteLine("");
+                    Console.WriteLine("");
+                    Console.WriteLine("");
+                    Console.WriteLine("");
                     Console.WriteLine($"PARABÉNS, {jogador.Nome}! Você venceu no gol de ouro.");
                 }
                 else if (golsJogador2 > golsJogador1)
                 {
+
+                    Console.WriteLine("");
+                    Console.WriteLine("");
+                    Console.WriteLine("");
+                    Console.WriteLine("");
                     Console.WriteLine($"PARABÉNS, {jogador2.Nome}! Você venceu no gol de ouro.");
                 }
                 else
@@ -1159,9 +1444,9 @@ private static int CalcularPontosPRO(int[] cartasJogador, string jogadorNome, re
                     DisputaPenaltis();
                 }
             }
-            }
+            
         }
-    }
+  
 
     
     }
@@ -1222,21 +1507,36 @@ private static int CalcularPontosPRO(int[] cartasJogador, string jogadorNome, re
 
 
 //Atualizar quando o jogador faz gol ou ganha pontos
+private void AtualizarGols(ref int golsJogador, ref int golsComputador, int pontosJogador, int pontosComputador)
+{
+    Console.WriteLine($"Gols: {jogador.Nome} - {golsJogador} | Computador - {golsComputador}");
 
-    private void AtualizarGols(ref int golsJogador, ref int golsComputador, int pontosJogador, int pontosComputador)
+    if (golsJogador > golsComputador)
     {
-        
-      
+        Console.WriteLine($"{jogador.Nome} venceu a partida com mais gols!");
+    }
+    else if (golsComputador > golsJogador)
+    {
+        Console.WriteLine("Computador venceu a partida com mais gols!");
+    }
+    else
+    {
+        Console.WriteLine("Número de gols igual.");
+
         if (pontosJogador > pontosComputador)
         {
-            golsJogador++;
+            Console.WriteLine($"{jogador.Nome} venceu a partida com mais pontos!");
         }
         else if (pontosComputador > pontosJogador)
         {
-            golsComputador++;
+            Console.WriteLine("Computador venceu a partida com mais pontos!");
+        }
+        else
+        {
+            Console.WriteLine("A partida terminou em empate.");
         }
     }
-
+}
 
 
 
@@ -1251,19 +1551,25 @@ private static int CalcularPontosPRO(int[] cartasJogador, string jogadorNome, re
 
 
 //GERAR CARTAS ALEATÓRIAS PARA O JOGADOR QUE FOR ABRIR
-    private int[] GerarCartasAleatorias(Random random)
+private int[] GerarCartasAleatorias(Random random)
+{
+    int[] cartas = new int[3];
+    int chanceCartaIgual = random.Next(1, 6); 
+
+    for (int i = 0; i < cartas.Length; i++)
     {
-        int[] cartas = new int[3];
-        for (int i = 0; i < cartas.Length; i++)
+        if (chanceCartaIgual <= 3) 
         {
             cartas[i] = random.Next(1, 7);
         }
-        return cartas;
+        else
+        {
+            cartas[i] = random.Next(1, 6); 
+        }
     }
 
-
-
-
+    return cartas;
+}
 
 
 

@@ -87,13 +87,49 @@ class JogoFutebol
 
 
 
+static void DrawLoadingBar(int percentage)
+    {
+        Console.Write("Carregando... ");
+
+        int progressBarLength = 20;
+        int progress = (int)Math.Ceiling(progressBarLength * percentage / 100.0);
+
+        Console.Write("[");
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.Write(new string('█', progress));
+        Console.Write(new string(' ', progressBarLength - progress));
+        Console.Write($"] {percentage}%\r");
+        Console.ResetColor();
+    }
 
 
 
 
 
+ static void AsciiArt()
+    {
+        string filePath = "asci.txt";
 
+        try
+        {
+            using (StreamReader sr = new StreamReader(filePath))
+            {
+                int contador = 0;
+                string line;
 
+                while ((line = sr.ReadLine()) != null)
+                {
+                    contador++;
+                    Console.SetCursorPosition(1, contador);
+                    Console.WriteLine(line);
+                }
+            }
+        }
+        catch (IOException e)
+        {
+            Console.WriteLine($"Ocorreu um erro ao ler o arquivo: {e.Message}");
+        }
+    }
 
 
 
@@ -118,6 +154,39 @@ class JogoFutebol
         Console.WriteLine("Nome do jogador 2");
         Console.ResetColor();
         jogador2.Nome = Console.ReadLine();
+
+
+
+
+        Console.WriteLine("Loading...");
+
+        for (int i = 0; i <= 100; i += 10)
+        {
+            DrawLoadingBar(i);
+            Thread.Sleep(200); 
+
+
+        }
+
+        LimparTela();
+
+
+        AsciiArt();
+        Console.WriteLine("");
+        Console.WriteLine("");
+        Console.WriteLine("");
+
+        Console.WriteLine("\n JOGO CARRREGADO! (ENTER PARA CONTINUAR)");
+        Console.ReadLine();
+
+
+        LimparTela();
+
+
+
+
+
+
 
         
         Console.ForegroundColor = ConsoleColor.Yellow;
@@ -163,28 +232,21 @@ class JogoFutebol
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 
                 
+                         
                 
-                Console.WriteLine("░░░░░░░░▌▒█░░░░░░░░░░░▄▀▒▌ ");
-                Console.WriteLine("░░░░░░░░▌▒▒█░░░░░░░░▄▀▒▒▒▐ ");
-                Console.WriteLine("░░░░░░░▐▄▀▒▒▀▀▀▀▄▄▄▀▒▒▒▒▒▐ ");
-                Console.WriteLine("░░░░░▄▄▀▒░▒▒▒▒▒▒▒▒▒█▒▒▄█▒▐ ");
-                Console.WriteLine("░░░▄▀▒▒▒░░░▒▒▒░░░▒▒▒▀██▀▒▌ ");
-                Console.WriteLine("░░▐▒▒▒▄▄▒▒▒▒░░░▒▒▒▒▒▒▒▀▄▒▒▌ ");
-                Console.WriteLine("░░▌░░▌█▀▒▒▒▒▒▄▀█▄▒▒▒▒▒▒▒█▒▐ ");
-                Console.WriteLine("░▐░░░▒▒▒▒▒▒▒▒▌██▀▒▒░░░▒▒▒▀▄▌ ");
-                Console.WriteLine("░▌░▒▄██▄▒▒▒▒▒▒▒▒▒░░░░░░▒▒▒▒▌ ");
-                Console.WriteLine("▌▒▀▐▄█▄█▌▄░▀▒▒░░░░░░░░░░▒▒▒▐ ");
-                Console.WriteLine("▐▒▒▐▀▐▀▒░▄▄▒▄▒▒▒▒▒▒░▒░▒░▒▒▒▒▌ ");
-                Console.WriteLine("▐▒▒▒▀▀▄▄▒▒▒▄▒▒▒▒▒▒▒▒░▒░▒░▒▒▐ ");
-                Console.WriteLine("░▌▒▒▒▒▒▒▀▀▀▒▒▒▒▒▒░▒░▒░▒░▒▒▒▌ ");
-                Console.WriteLine("░▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░▒░▒▒▄▒▒▐ ");
-                Console.WriteLine("░░▀▄▒▒▒▒▒▒▒▒▒▒▒░▒░▒░▒▄▒▒▒▒▌ ");
-                Console.WriteLine("░░░░▀▄▒▒▒▒▒▒▒▒▒▒▄▄▄▀▒▒▒▒▄▀ ");
-                Console.ResetColor();
-                Console.WriteLine("");
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("Link dos 'criadores' do código (Digite 1 para acessar ou 2 para cancelar)");
-                Console.WriteLine("");
+                  Console.WriteLine("█████████");
+                  Console.WriteLine("█▄█████▄█");
+                  Console.WriteLine("█▼▼▼▼▼");
+                  Console.WriteLine("█ Link dos 'criadores' do código (Digite 1 para acessar ou 2 para cancelar)");
+                  Console.WriteLine("█▲▲▲▲▲");     
+                  Console.WriteLine("█████████");
+                  Console.WriteLine(" ██ ██");
+                  Console.ResetColor();
+                  Console.WriteLine("");
+
+      
+
+
                 string escolha = Console.ReadLine();
 
                   if (escolha == "1")
@@ -1399,7 +1461,7 @@ private static int CalcularPontosPRO(int[] cartasJogador, string jogadorNome, re
                 Console.WriteLine("");
                 Console.WriteLine("");
                 Console.WriteLine("");
-
+                
                 Console.WriteLine($"Jogada: jogador está perto de marcar na área adversária (1 - Esquerda, 2 - Centro, 3 - Direita) - {jogador.Nome}");
                 int escolhaJogador = int.Parse(Console.ReadLine());
 

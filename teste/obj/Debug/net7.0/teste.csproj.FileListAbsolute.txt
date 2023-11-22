@@ -1,5 +1,0 @@
-C:\Users\clevi\OneDrive\Área de Trabalho\arquivotestec#\teste\obj\Debug\net7.0\teste.csproj.AssemblyReference.cache
-C:\Users\clevi\OneDrive\Área de Trabalho\arquivotestec#\teste\obj\Debug\net7.0\teste.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\clevi\OneDrive\Área de Trabalho\arquivotestec#\teste\obj\Debug\net7.0\teste.AssemblyInfoInputs.cache
-C:\Users\clevi\OneDrive\Área de Trabalho\arquivotestec#\teste\obj\Debug\net7.0\teste.AssemblyInfo.cs
-C:\Users\clevi\OneDrive\Área de Trabalho\arquivotestec#\teste\obj\Debug\net7.0\teste.csproj.CoreCompileInputs.cache

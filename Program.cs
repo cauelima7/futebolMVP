@@ -239,6 +239,31 @@ static void DrawLoadingBar(int percentage)
     }
 
 
+ static void titulo()
+    {
+        string filePath = "titulo.txt";
+
+        try
+        {
+            using (StreamReader sr = new StreamReader(filePath))
+            {
+                int contador = 0;
+                string line;
+
+                while ((line = sr.ReadLine()) != null)
+                {
+                    contador++;
+                    Console.SetCursorPosition(1, contador);
+                    Console.WriteLine(line);
+                }
+            }
+        }
+        catch (IOException e)
+        {
+            Console.WriteLine($"Ocorreu um erro ao ler o arquivo: {e.Message}");
+        }
+    }
+
 
 
 
@@ -331,15 +356,16 @@ static void DrawLoadingBar(int percentage)
 
         
         Console.ForegroundColor = ConsoleColor.Yellow;
-        Console.WriteLine("----------------------------------------------------------------------------------------------------------------Futebol Score-----------------------------------------------------------------------------------------------------------------------");
+        titulo();
         Console.ResetColor();
-        Console.WriteLine($"                                                                                                    1. {jogador.Nome} x Computador");
-        Console.WriteLine($"                                                                                                    2. {jogador.Nome}  x {jogador2.Nome}");
-        Console.WriteLine($"                                                                                                    3. CRÉDITOS E MAIS INFORMAÇÕES");
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.WriteLine($"                                                                                         1. {jogador.Nome} x Computador");
+        Console.WriteLine($"                                                                                         2. {jogador.Nome}  x {jogador2.Nome}");
+        Console.WriteLine($"                                                                                         3. CRÉDITOS E MAIS INFORMAÇÕES");
+        Console.ResetColor();
         Console.ForegroundColor = ConsoleColor.Yellow;
-        Console.WriteLine("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
-        Console.ResetColor();
-        Console.WriteLine("                                                                                                       Escolha uma das opções (1 ou 2)");
+
+        Console.WriteLine("                                                                                           Escolha uma das opções (1 ou 2)");
         resp = int.Parse(Console.ReadLine());
         Console.ResetColor();
 

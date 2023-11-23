@@ -876,7 +876,8 @@ private void Prorrogacao()
                 Console.ForegroundColor = ConsoleColor.Yellow;    
                 Console.WriteLine($"------------------------------Resultado da prorrogação-------------------------------------- ");
                 Console.ResetColor();
-                Console.WriteLine($"{jogo.jogador.Nome} - {pontosJogador1} Gols x Computador - {pontosJogador2} Gols");
+                Console.WriteLine($"                  {jogo.jogador.Nome} | Computador                  ");
+                Console.WriteLine($"                   {pontosJogador1} x {pontosJogador2}                  ");
                 Console.ForegroundColor = ConsoleColor.Yellow;    
                 Console.WriteLine("----------------------------------------------------------------------------------------------");    
                 Console.ResetColor();        
@@ -911,7 +912,8 @@ private void Prorrogacao()
                 Console.ForegroundColor = ConsoleColor.Yellow;    
                 Console.WriteLine($"------------------------------Resultado da prorrogação-------------------------------------- ");
                 Console.ResetColor();
-                Console.WriteLine($"{jogo.jogador.Nome} - {pontosJogador1} Gols x Computador - {pontosJogador2} Gols");
+                Console.WriteLine($"                          {jogo.jogador.Nome} | Computador                  ");
+                Console.WriteLine($"{pontosJogador1}  x {pontosJogador2} ");
                 Console.ForegroundColor = ConsoleColor.Yellow;    
                 Console.WriteLine("----------------------------------------------------------------------------------------------");    
                 Console.ResetColor();   
@@ -1279,17 +1281,15 @@ private static int CalcularPontosPRO(int[] cartasJogador, string jogadorNome, re
 
 
 //DISPUTA DE PENALTIS
-    private void DisputaPenaltis()
+  private void DisputaPenaltis()
+{
+    Console.WriteLine("Iniciando a disputa de pênaltis...");
+
+    int pontosJogador1 = 0;
+    int pontosJogador2 = 0;
+
+    if (resp == 0)
     {
-
-
-
-        if (resp==0){
-         Console.WriteLine("Iniciando a disputa de pênaltis...");
-
-        int pontosJogador1 = 0;
-        int pontosJogador2 = 0;
-
         for (int i = 0; i < 5; i++)
         {
             Console.WriteLine($"Pênalti {i + 1}: Escolha o canto (1 - Esquerda, 2 - Centro, 3 - Direita) - {jogador.Nome}");
@@ -1298,11 +1298,11 @@ private static int CalcularPontosPRO(int[] cartasJogador, string jogadorNome, re
             Random random = new Random();
             int escolhaSorte = random.Next(1, 4);
 
-
-
             if (escolhaJogador == escolhaSorte)
             {
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine($"{jogador.Nome} marcou o pênalti!");
+                Console.ResetColor();
                 pontosJogador1++;
             }
             else
@@ -1310,40 +1310,26 @@ private static int CalcularPontosPRO(int[] cartasJogador, string jogadorNome, re
                 Console.WriteLine($"{jogador.Nome} errou o pênalti!");
             }
 
+            LimparTela();
+
             Console.WriteLine("Computador fez a sua escolha");
 
             int escolhaComputador = random.Next(1, 4);
 
-            if (escolhaComputador == escolhaSorte){ 
+            if (escolhaComputador == escolhaSorte)
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine($"Computador marcou o pênalti!");
-            }else{ 
+                Console.ResetColor();
+            }
+            else
+            {
                 Console.WriteLine($"Computador errou o pênalti!");
             }
-
-
         }
-
-
-        Console.WriteLine("---------------- Resultado Pênaltis -----------------");
-        Console.WriteLine($"{jogador.Nome}: {pontosJogador1} x {pontosJogador2} :Computador");
-
-        if (pontosJogador1 > pontosJogador2)
-        {
-            Console.WriteLine($"PARABÉNS, {jogador.Nome}! Você venceu na disputa de pênaltis.");
-        }
-        else if (pontosJogador2 > pontosJogador1)
-        {
-            Console.WriteLine($"PARABÉNS, Computador venceu na disputa de pênaltis.");
-        }
-        }
-
-
-        if (resp==1){
-        Console.WriteLine("Iniciando a disputa de pênaltis...");
-
-        int pontosJogador1 = 0;
-        int pontosJogador2 = 0;
-
+    }
+    else if (resp == 1)
+    {
         for (int i = 0; i < 5; i++)
         {
             Console.WriteLine($"Pênalti {i + 1}: Escolha o canto (1 - Esquerda, 2 - Centro, 3 - Direita) - {jogador.Nome}");
@@ -1377,7 +1363,9 @@ private static int CalcularPontosPRO(int[] cartasJogador, string jogadorNome, re
 
             if (escolhaJogador2 == escolhaComputador)
             {
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine($"{jogador2.Nome} marcou o pênalti!");
+                Console.ResetColor();
                 pontosJogador2++;
             }
             else
@@ -1385,23 +1373,25 @@ private static int CalcularPontosPRO(int[] cartasJogador, string jogadorNome, re
                 Console.WriteLine($"{jogador2.Nome} errou o pênalti!");
             }
         }
-
-        Console.WriteLine("---------------- Resultado Pênaltis -----------------");
-        Console.WriteLine($"{jogador.Nome}: {pontosJogador1} x {pontosJogador2} :{jogador2.Nome}");
-
-        if (pontosJogador1 > pontosJogador2)
-        {
-            Console.WriteLine($"PARABÉNS, {jogador.Nome}! Você venceu na disputa de pênaltis.");
-        }
-        else if (pontosJogador2 > pontosJogador1)
-        {
-            Console.WriteLine($"PARABÉNS, {jogador2.Nome}! Você venceu na disputa de pênaltis.");
-        }
-        }
     }
+    LimparTela();
+    Console.WriteLine("-------------------- Resultado Pênaltis ------------------------");
+    Console.WriteLine($"{jogador.Nome}: {pontosJogador1} x {pontosJogador2} :{jogador2.Nome}");
+    Console.WriteLine("-----------------------------------------------------------------");
 
-
-
+    if (pontosJogador1 > pontosJogador2)
+    {
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.WriteLine($"PARABÉNS, {jogador.Nome}! Você venceu na disputa de pênaltis.");
+        Console.ResetColor();
+    }
+    else if (pontosJogador2 > pontosJogador1)
+    {
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.WriteLine($"PARABÉNS, {jogador2.Nome}! Você venceu na disputa de pênaltis.");
+        Console.ResetColor();
+    }
+}
 
 
 

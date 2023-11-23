@@ -161,13 +161,17 @@ class Program
              else if (i == 50)
                 {
                     LimparTela();
+           
                     AsciiArt("asci2.txt");
+                   
                 }
             }
 
             LimparTela();
-
+            
+           
             AsciiArt("asci.txt");
+            
             Console.WriteLine("");
             Console.WriteLine("");
             Console.WriteLine("");
@@ -236,12 +240,17 @@ class Program
     switch (resp)
     {
         case 0:
+
+              pontosJogador = 0; 
+              pontosComputador = 0; 
             JogarPartidaContraComputador(ref pontosJogador, ref pontosComputador, ref golsJogador, ref golsComputador);
             ExibirResultado(jogador.Nome, "Computador", golsJogador, golsComputador, pontosJogador, pontosComputador, energiaJogador, energiaComputador);
             ExibirPlacar(jogador.Nome, "Computador", pontosJogador, pontosComputador);
             break;
 
         case 1:
+              pontosJogador = 0; 
+              pontosComputador = 0; 
             JogarPartidaEntreJogadores(ref pontosJogador, ref pontosComputador, ref golsJogador, ref golsComputador);
             ExibirResultado(jogador.Nome, jogador2.Nome, golsJogador, golsComputador, pontosJogador, pontosComputador, energiaJogador, energiaComputador);
             ExibirPlacar(jogador.Nome, jogador2.Nome, pontosJogador, pontosComputador);
@@ -341,6 +350,9 @@ class Program
         int energiaJogador1 = 10;
         int energiaJogador2 = 10;
 
+        pontosJogador = 0; 
+        pontosComputador = 0; 
+
         Console.WriteLine($"{jogador.Nome} foi escolhido para começar primeiro");
         Console.WriteLine("Aperte ENTER para começar");
         Console.ReadLine();
@@ -387,17 +399,18 @@ class Program
 
 
 
-        Console.WriteLine("------------------------------------------");
-        Console.WriteLine("            '._==_==_=_.'");
-        Console.WriteLine("            .-\\:      /-.");
-        Console.WriteLine("           | (|:.     |) |");
-        Console.WriteLine("            '-|:.     |-'");
-        Console.WriteLine("              \\::.    /");
-        Console.WriteLine("               '::. .'");
-        Console.WriteLine("                 ) (");
-        Console.WriteLine("               _.' '._");
-        Console.WriteLine("------------------------------------------");
-
+        Console.WriteLine(" -----------------------------------------------------------------------------------------------------------------------");
+        Console.WriteLine("                                                  '._==_==_=_.'");
+        Console.WriteLine("                                                  .-\\:      /-.");
+        Console.WriteLine("                                                 | (|:.     |) |");
+        Console.WriteLine("                                                  '-|:.     |-'");
+        Console.WriteLine("                                                    \\::.    /");
+        Console.WriteLine("                                                     '::. .'");
+        Console.WriteLine("                                                       ) (");
+        Console.WriteLine("                                                     _.' '._");
+        Console.WriteLine(" ---------------------------------------------------------------------------------------------------------------------");
+        Console.ReadLine();
+           LimparTela();
 
         }
         else if (energiaJogador2 > energiaJogador1)
@@ -405,24 +418,22 @@ class Program
             Console.WriteLine($"{jogador2.Nome} venceu por ter mais energias!");
 
 
-        Console.WriteLine("------------------------------------------");
-        Console.WriteLine("            '._==_==_=_.'");
-        Console.WriteLine("            .-\\:      /-.");
-        Console.WriteLine("           | (|:.     |) |");
-        Console.WriteLine("            '-|:.     |-'");
-        Console.WriteLine("              \\::.    /");
-        Console.WriteLine("               '::. .'");
-        Console.WriteLine("                 ) (");
-        Console.WriteLine("               _.' '._");
-        Console.WriteLine("------------------------------------------");
+        Console.WriteLine(" --------------------------------------------------------------------------------------------------------------------");
+        Console.WriteLine("                                                 '._==_==_=_.'");
+        Console.WriteLine("                                                 .-\\:      /-.");
+        Console.WriteLine("                                                | (|:.     |) |");
+        Console.WriteLine("                                                 '-|:.     |-'");
+        Console.WriteLine("                                                   \\::.    /");
+        Console.WriteLine("                                                    '::. .'");
+        Console.WriteLine("                                                      ) (");
+        Console.WriteLine("                                                    _.' '._");
+        Console.WriteLine(" --------------------------------------------------------------------------------------------------------------------");
 
 
-
+        Console.ReadLine();
+          LimparTela();
         }
-        else
-        {
-            Console.WriteLine("Empate! Ambos os jogadores têm a mesma pontuação e energia.");
-        }
+   
     }
     else
     {
@@ -519,36 +530,42 @@ class Program
     {
         if (energiaJogador > energiaComputador)
         {
-            Console.WriteLine($"{jogador.Nome} venceu por ter mais energias!");
+            Console.WriteLine($"                                                {jogador.Nome} venceu por ter mais energias!");
 
 
-        Console.WriteLine("------------------------------------------");
-        Console.WriteLine("            '._==_==_=_.'");
-        Console.WriteLine("            .-\\:      /-.");
-        Console.WriteLine("           | (|:.     |) |");
-        Console.WriteLine("            '-|:.     |-'");
-        Console.WriteLine("              \\::.    /");
-        Console.WriteLine("               '::. .'");
-        Console.WriteLine("                 ) (");
-        Console.WriteLine("               _.' '._");
-        Console.WriteLine("------------------------------------------");
+        Console.WriteLine("                                                     ------------------------------------------");
+        Console.WriteLine("                                                                 '._==_==_=_.'");
+        Console.WriteLine("                                                                 .-\\:      /-.");
+        Console.WriteLine("                                                                | (|:.     |) |");
+        Console.WriteLine("                                                                 '-|:.     |-'");
+        Console.WriteLine("                                                                   \\::.    /");
+        Console.WriteLine("                                                                    '::. .'");
+        Console.WriteLine("                                                                      ) (");
+        Console.WriteLine("                                                                    _.' '._");
+        Console.WriteLine("                                                     ------------------------------------------");
 
         }
         else if (energiaComputador > energiaJogador)
         {
-            Console.WriteLine("Computador venceu por ter mais energias!");
+            Console.WriteLine("                                                 Computador venceu por ter mais energias!");
 
-
+        Console.WriteLine("                                                     ------------------------------------------");
+        Console.WriteLine("                                                                 '._==_==_=_.'");
+        Console.WriteLine("                                                                 .-\\:      /-.");
+        Console.WriteLine("                                                                | (|:.     |) |");
+        Console.WriteLine("                                                                 '-|:.     |-'");
+        Console.WriteLine("                                                                   \\::.    /");
+        Console.WriteLine("                                                                    '::. .'");
+        Console.WriteLine("                                                                      ) (");
+        Console.WriteLine("                                                                    _.' '._");
+        Console.WriteLine("                                                     ------------------------------------------");
 
 
 
 
 
         }
-        else
-        {
-            Console.WriteLine("Empate! Ambos têm a mesma pontuação e energia.");
-        }
+    
     }
     else
     {
@@ -603,7 +620,7 @@ class Program
         if (resp == 0){
         
         Console.ForegroundColor = ConsoleColor.Yellow;
-        Console.WriteLine("---------------------- Resultado Jogador x Computador (Caso escolheu 1)----------------------");
+        Console.WriteLine("---------------------- Resultado Jogador x Computador ----------------------");
 
    
 
@@ -620,18 +637,18 @@ class Program
         else if (resp == 1){
    
         Console.ForegroundColor = ConsoleColor.Yellow;
-        Console.WriteLine("---------------------- Resultado Jogador x jogador 2 (Caso escolheu 2)----------------------");
+        Console.WriteLine($"------------------------------------------------------------------ Resultado {jogador.Nome} x {jogador2.Nome} ------------------------------------------------------------------");
 
 
 
-        Console.WriteLine("            '._==_==_=_.'");
-        Console.WriteLine("            .-\\:      /-.");
-        Console.WriteLine("           | (|:.     |) |");
-        Console.WriteLine("            '-|:.     |-'");
-        Console.WriteLine("              \\::.    /");
-        Console.WriteLine("               '::. .'");
-        Console.WriteLine("                 ) (");
-        Console.WriteLine("               _.' '._");
+        Console.WriteLine("                                                                                 '._==_==_=_.'");
+        Console.WriteLine("                                                                                 .-\\:      /-.");
+        Console.WriteLine("                                                                                | (|:.     |) |");
+        Console.WriteLine("                                                                                 '-|:.     |-'");
+        Console.WriteLine("                                                                                   \\::.    /");
+        Console.WriteLine("                                                                                    '::. .'");
+        Console.WriteLine("                                                                                      ) (");
+        Console.WriteLine("                                                                                    _.' '._");
 
 
 
@@ -639,12 +656,12 @@ class Program
 
 
         Console.ResetColor();
-        Console.WriteLine($"Pontos de {jogador.Nome}: {pontosJogador} | Energias: {energiaJogador}");
-        Console.WriteLine($"Pontos de {jogador2.Nome}: {pontosComputador} | Energias: {energiaComputador}");
-        Console.WriteLine($"GOLS de {jogador.Nome}: {golsJogador1}");
-        Console.WriteLine($"GOLS de {jogador2.Nome}: {golsJogador2}");
+        Console.WriteLine($"                                                            Pontos de {jogador.Nome}: {pontosJogador} | Energias: {energiaJogador}");
+        Console.WriteLine($"                                                            Pontos de {jogador2.Nome}: {pontosComputador} | Energias: {energiaComputador}");
+        Console.WriteLine($"                                                            GOLS de {jogador.Nome}: {golsJogador1}");
+        Console.WriteLine($"                                                            GOLS de {jogador2.Nome}: {golsJogador2}");
         Console.ForegroundColor = ConsoleColor.Yellow;
-        Console.WriteLine("---------------------------------------------------------------------------------------------");
+        Console.WriteLine("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
         Console.ResetColor();
 
 
@@ -662,7 +679,7 @@ class Program
             LimparTela();
         }
 
-           else if (resp == 0 && golsJogador == golsJogador2 && pontosComputador == pontosJogador)
+     else if (resp == 1 && golsJogador == golsJogador2 && pontosComputador == pontosJogador)
         {
             Console.WriteLine("O JOGO TERMINOU EMPATADO!");
             Console.WriteLine("Escolha o que deseja fazer para desempatar:");
@@ -670,6 +687,7 @@ class Program
             Console.WriteLine("2. Gol de ouro");
             Console.WriteLine("3. Permanecer empatado");
             Console.WriteLine("4. Prorrogação");
+       
 
            opcaoDesempate = int.Parse(Console.ReadLine());
 
@@ -686,16 +704,17 @@ class Program
                     Console.WriteLine("O jogo permanece empatado.");
                     break;
 
-                  case 4:
+
+                case 4:
                     Prorrogacao();
                     break;
+
 
                 default:
                     Console.WriteLine("Opção inválida. O jogo permanece empatado.");
                     break;
             }
         }
-
 
 
         }
@@ -836,7 +855,7 @@ private void Prorrogacao()
     Console.WriteLine("");
 
 
-    Console.WriteLine("Escolha o modo da prorrogação (1 - Jogador vs Computador, 2 - Jogador vs Jogador): ");
+    
     
 
     if (resp == 0)
@@ -854,7 +873,7 @@ private void Prorrogacao()
             int energiaJogador2 = 0;
 
             // Crie uma instância da classe JogoFutebol
-            JogoFutebol jogo = new JogoFutebol();
+        
 
             int pontosJogador1 = CalcularPontosPRO(cartasJogador1, "Jogador", ref energiaJogador1);
             int pontosJogador2 = CalcularPontosPRO(cartasJogador2, "Computador", ref energiaJogador2);
@@ -868,7 +887,7 @@ private void Prorrogacao()
             Console.WriteLine("");
             Console.WriteLine("");
 
-            Console.WriteLine($"Resultado da prorrogação: Jogador {pontosJogador1} ponto(s) x Computador {pontosJogador2} ponto(s)");
+
 
             if (pontosJogador1 > pontosJogador2)
             {   
@@ -876,12 +895,12 @@ private void Prorrogacao()
                 Console.ForegroundColor = ConsoleColor.Yellow;    
                 Console.WriteLine($"------------------------------Resultado da prorrogação-------------------------------------- ");
                 Console.ResetColor();
-                Console.WriteLine($"                  {jogo.jogador.Nome} | Computador                  ");
+                Console.WriteLine($"                    {jogador.Nome} | Computador                  ");
                 Console.WriteLine($"                   {pontosJogador1} x {pontosJogador2}                  ");
                 Console.ForegroundColor = ConsoleColor.Yellow;    
                 Console.WriteLine("----------------------------------------------------------------------------------------------");    
                 Console.ResetColor();        
-                Console.WriteLine($"PARABÉNS !!! {jogo.jogador.Nome} Venceu a prorrogação");
+                Console.WriteLine($"PARABÉNS !!! {jogador.Nome} Venceu a prorrogação");
                 
 
                
@@ -912,8 +931,8 @@ private void Prorrogacao()
                 Console.ForegroundColor = ConsoleColor.Yellow;    
                 Console.WriteLine($"------------------------------Resultado da prorrogação-------------------------------------- ");
                 Console.ResetColor();
-                Console.WriteLine($"                          {jogo.jogador.Nome} | Computador                  ");
-                Console.WriteLine($"{pontosJogador1}  x {pontosJogador2} ");
+                Console.WriteLine($"                        {jogador.Nome} | Computador                  ");
+                Console.WriteLine($"                        {pontosJogador1}  x {pontosJogador2} ");
                 Console.ForegroundColor = ConsoleColor.Yellow;    
                 Console.WriteLine("----------------------------------------------------------------------------------------------");    
                 Console.ResetColor();   
@@ -939,8 +958,11 @@ private void Prorrogacao()
 
             }
 
+              if (pontosJogador1 == pontosJogador2 ){
+
             // Determinando o vencedor
             DeterminarVencedor(pontosJogador1, pontosJogador2, resp);
+            }
       
     }
     else if (resp == 1)
@@ -957,7 +979,7 @@ private void Prorrogacao()
             int energiaJogador1 = 0;
             int energiaJogador2 = 0;
 
-            JogoFutebol jogo = new JogoFutebol();
+        
 
             // Crie uma instância da classe JogoFutebol
            
@@ -969,14 +991,15 @@ private void Prorrogacao()
             { 
        
 
-                Console.ForegroundColor = ConsoleColor.Yellow;    
+                          Console.ForegroundColor = ConsoleColor.Yellow;    
                 Console.WriteLine($"------------------------------Resultado da prorrogação-------------------------------------- ");
                 Console.ResetColor();
-                Console.WriteLine($"{jogo.jogador.Nome} - {pontosJogador1} Gols x {jogo.jogador2.Nome} - {pontosJogador2} Gols");
+                Console.WriteLine($"                        {jogador.Nome} | {jogador2.Nome}                 ");
+                Console.WriteLine($"                        {pontosJogador1}  x {pontosJogador2} ");
                 Console.ForegroundColor = ConsoleColor.Yellow;    
-                Console.WriteLine("----------------------------------------------------------------------------------------------");    
+                Console.WriteLine("----------------------------------------------------------------------------------------------");     
                 Console.ResetColor();        
-                Console.WriteLine($"PARABÉNS !!! {jogo.jogador.Nome} Venceu a prorrogação");
+                Console.WriteLine($"PARABÉNS !!! {jogador.Nome} Venceu a prorrogação");
 
 
                 Console.ForegroundColor = ConsoleColor.Yellow;    
@@ -997,18 +1020,16 @@ private void Prorrogacao()
             }
             else if (pontosJogador2 > pontosJogador1)
             { 
-                Console.WriteLine($"Resultado da prorrogação: {jogo.jogador.Nome} - {pontosJogador1} ponto(s) x {jogo.jogador2.Nome} - {pontosJogador2} ponto(s)");
-                Console.WriteLine($"{jogo.jogador2.Nome}  Venceu a prorrogação");
-
+            
 
                 Console.ForegroundColor = ConsoleColor.Yellow;    
                 Console.WriteLine($"------------------------------Resultado da prorrogação-------------------------------------- ");
                 Console.ResetColor();
-                Console.WriteLine($"{jogo.jogador.Nome} - {pontosJogador1} Gols x {jogo.jogador2.Nome} - {pontosJogador2} Gols");
+                Console.WriteLine($"{jogador.Nome} - {pontosJogador1} Gols x {jogador2.Nome} - {pontosJogador2} Gols");
                 Console.ForegroundColor = ConsoleColor.Yellow;    
                 Console.WriteLine("----------------------------------------------------------------------------------------------");      
                 Console.ResetColor();     
-                Console.WriteLine($"{jogo.jogador2.Nome}  Venceu a prorrogação");  
+                Console.WriteLine($"{jogador2.Nome}  Venceu a prorrogação");  
 
 
         Console.ForegroundColor = ConsoleColor.Yellow;    
@@ -1026,9 +1047,11 @@ private void Prorrogacao()
 
             }
 
+            if (pontosJogador1 == pontosJogador2 ){
+
             // Determinando o vencedor
             DeterminarVencedor(pontosJogador1, pontosJogador2, resp);
-      
+            }
     }
 }
 
@@ -1118,7 +1141,7 @@ private static void DeterminarVencedor(int pontosJogador1, int pontosJogador2, i
             }
 
             Console.WriteLine("---------------- Resultado Pênaltis -----------------");
-            Console.WriteLine($"Jogador: {pontosJogador1Penaltis} x {pontosJogador2Penaltis} :Computador");
+            Console.WriteLine($"Jogador 1: {pontosJogador1Penaltis} x {pontosJogador2Penaltis} :Computador");
 
             if (pontosJogador1Penaltis > pontosJogador2Penaltis)
             {
@@ -1160,6 +1183,11 @@ private static void DeterminarVencedor(int pontosJogador1, int pontosJogador2, i
 
 
             }
+        }else if (resp == 1){ 
+
+            
+
+
         }
     }
 }
@@ -1191,24 +1219,24 @@ private static void DeterminarVencedor(int pontosJogador1, int pontosJogador2, i
 
 
 //CALCULAR PONTOS DA PRORROGAÇÃO
-
-private static int CalcularPontosPRO(int[] cartasJogador, string jogadorNome, ref int energia)
+private static int CalcularPontosPRO(int[] cartasJogador, string jogadorNome, ref int energia, bool aguardarInput = true)
 {
-
-
     Console.Clear();
 
-    Console.WriteLine($"{jogadorNome}, pressione ENTER para abrir as cartas");
-    Console.ReadLine();
+    if (aguardarInput)
+    {
+        Console.WriteLine($"{jogadorNome}, pressione ENTER para abrir as cartas");
+        Console.ReadLine();
+    }
 
     int pontosRodada = 0;
     int golsRodada = 0;
- 
+
     Random random = new Random();
 
     for (int i = 0; i < cartasJogador.Length; i++)
     {
-        int cartaSelecionada = random.Next(1, 6); // Gera um número aleatório entre 1 e 5
+        int cartaSelecionada = random.Next(1, 6);
 
         Console.WriteLine($"Carta {i + 1}: {cartaSelecionada}");
 
@@ -1217,25 +1245,43 @@ private static int CalcularPontosPRO(int[] cartasJogador, string jogadorNome, re
             case 1:
                 Console.WriteLine("GOL - 3 pontos");
                 pontosRodada += 3;
-                golsRodada ++;
+                golsRodada++;
                 break;
             case 2:
                 Console.WriteLine("Pênalti - 2 pontos");
 
-                Console.WriteLine("PENALTI!!!! ESCOLHA O CANTO PARA BATER. (1-ESQUERDA 2-CENTRO 3-DIREITO) - " + jogadorNome);
-                int respPenalti = int.Parse(Console.ReadLine());
-
-                int penalti = random.Next(1, 4);
-
-                if (respPenalti == penalti)
+                if (aguardarInput)
                 {
-                    Console.WriteLine("GOL!!!! Você ganhou 2 pontos");
-                    pontosRodada += 2;
-                     golsRodada ++;
+                    Console.WriteLine("PENALTI!!!! ESCOLHA O CANTO PARA BATER. (1-ESQUERDA 2-CENTRO 3-DIREITO) - " + jogadorNome);
+                    int respPenalti = int.Parse(Console.ReadLine());
+
+                    int penalti = random.Next(1, 4);
+
+                    if (respPenalti == penalti)
+                    {
+                        Console.WriteLine("GOL!!!! Você ganhou 2 pontos");
+                        pontosRodada += 2;
+                        golsRodada++;
+                    }
+                    else
+                    {
+                        Console.WriteLine("ERROU!");
+                    }
                 }
                 else
                 {
-                    Console.WriteLine("ERROU!");
+                    int penalti = random.Next(1, 4);
+
+                    if (penalti == 1)
+                    {
+                        Console.WriteLine("GOL!!!! O computador marcou 2 pontos");
+                        pontosRodada += 2;
+                        golsRodada++;
+                    }
+                    else
+                    {
+                        Console.WriteLine("ERROU! O computador perdeu a chance.");
+                    }
                 }
                 break;
             case 3:
@@ -1254,15 +1300,16 @@ private static int CalcularPontosPRO(int[] cartasJogador, string jogadorNome, re
                 break;
         }
 
-        Console.ReadLine();
+        if (aguardarInput)
+        {
+            Console.ReadLine();
+        }
     }
 
     Console.WriteLine($"Total de pontos na rodada: {pontosRodada}");
     Console.WriteLine($"Total de gols na rodada: {golsRodada}");
     return golsRodada;
 }
-
-
 
 
 
@@ -1705,29 +1752,42 @@ private int[] GerarCartasAleatorias(Random random)
     {
         Console.WriteLine($"Carta {i + 1}: {cartasJogador[i]}");
 
-        if (cartasJogador[i] == 1)
+         if (cartasJogador[i] == 1)
         {
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Gol");
+            Console.ResetColor();
         }
         else if (cartasJogador[i] == 2)
         {
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("Pênalti");
+            Console.ResetColor();
         }
         else if (cartasJogador[i] == 3)
         {
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
             Console.WriteLine("Falta");
+            Console.ResetColor();
+            
         }
         else if (cartasJogador[i] == 4)
         {
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Cartão amarelo");
+            Console.ResetColor();
         }
         else if (cartasJogador[i] == 5)
         {
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Cartão vermelho");
+            Console.ResetColor();
         }
         else if (cartasJogador[i] == 6)
         {
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine("Energia");
+            Console.ResetColor();
         }
 
         if (i > 0 && cartasJogador[i] == cartasJogador[i - 1])
@@ -1749,29 +1809,42 @@ else
     {
         Console.WriteLine($"Carta {i + 1}: {cartasJogador[i]}");
 
-        if (cartasJogador[i] == 1)
+       if (cartasJogador[i] == 1)
         {
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Gol");
+            Console.ResetColor();
         }
         else if (cartasJogador[i] == 2)
         {
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("Pênalti");
+            Console.ResetColor();
         }
         else if (cartasJogador[i] == 3)
         {
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
             Console.WriteLine("Falta");
+            Console.ResetColor();
+            
         }
         else if (cartasJogador[i] == 4)
         {
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Cartão amarelo");
+            Console.ResetColor();
         }
         else if (cartasJogador[i] == 5)
         {
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Cartão vermelho");
+            Console.ResetColor();
         }
         else if (cartasJogador[i] == 6)
         {
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine("Energia");
+            Console.ResetColor();
         }
 
         if (i > 0 && cartasJogador[i] == cartasJogador[i - 1])
@@ -1793,10 +1866,10 @@ else
             switch (valorCartaRepetida)
             {
                 case 1:
-                    Console.WriteLine("GOL - 3 pontos");
+                    Console.WriteLine("GOL ");
                     return 3;
                 case 2:
-                    Console.WriteLine("Pênalti - 2 pontos");
+                    
 
                      Console.WriteLine("PENALTI!!!! ESCOLHA O CANTO PARA BATER. (1-ESQUERDA 2-CENTRO 3-DIREITO) - " + jogadorNome);
                       int respPenalti = int.Parse(Console.ReadLine());
@@ -1806,7 +1879,7 @@ else
 
                   if (respPenalti == penalti)
                     {
-                     Console.WriteLine("GOL!!!! Você ganhou 3 pontos");
+                     Console.WriteLine("GOL!!!!");
                  return 2;
                 
                  }

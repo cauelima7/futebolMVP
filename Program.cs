@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+
 class Program
 {
 
@@ -31,449 +32,288 @@ class Program
 }
 
 
-
-
-class JogoFutebol
-{
-    private Jogador jogador;
-    private Jogador jogador2;
-    private Computador computador;
-
-    private int golsJogador1 = 0;
-    private int golsJogador2 = 0;
-    private int pontosJogador1 = 0;
-    private int pontosJogador2 = 0;
-
-    private int energiaJogador;
-    private int energiaComputador;
-
-
-    private int golsJogador;
-    private int golsComputador;
-
-    private int resp;
-
-    private int opcaoDesempate;
-    
-    private void LimparTela()
+    class JogoFutebol
     {
-        Console.Clear();
-    }
-
-    public JogoFutebol()
-    {
-        jogador = new Jogador();
-        jogador2 = new Jogador();
-        computador = new Computador();
-       
-
-    }
+        private Jogador jogador;
+        private Jogador jogador2;
+        private Computador computador;
 
 
+        private bool jogarNovamente;
+        private int golsJogador1 = 0;
+        private int golsJogador2 = 0;
+        private int pontosJogador1 = 0;
+        private int pontosJogador2 = 0;
 
+        private int energiaJogador;
+        private int energiaComputador;
 
+        private int golsJogador;
+        private int golsComputador;
 
+        private int resp;
 
+        private int opcaoDesempate;
 
-
-
-
-
-
-
-
-
-
-
-
-
-static void DrawLoadingBar(int percentage)
-    {
-        Console.Write("Carregando... ");
-
-        int progressBarLength = 20;
-        int progress = (int)Math.Ceiling(progressBarLength * percentage / 100.0);
-
-        Console.Write("[");
-        Console.ForegroundColor = ConsoleColor.Green;
-        Console.Write(new string('█', progress));
-        Console.Write(new string(' ', progressBarLength - progress));
-        Console.Write($"] {percentage}%\r");
-        Console.ResetColor();
-    }
-
-
-
-
-
- static void AsciiArt()
-    {
-        string filePath = "asci.txt";
-
-        try
+        private void LimparTela()
         {
-            using (StreamReader sr = new StreamReader(filePath))
-            {
-                int contador = 0;
-                string line;
+            Console.Clear();
+        }
 
-                while ((line = sr.ReadLine()) != null)
+        public JogoFutebol()
+        {
+            jogador = new Jogador();
+            jogador2 = new Jogador();
+            computador = new Computador();
+        }
+
+        static void DrawLoadingBar(int percentage)
+        {
+            Console.Write("Carregando... ");
+
+            int progressBarLength = 20;
+            int progress = (int)Math.Ceiling(progressBarLength * percentage / 100.0);
+
+            Console.Write("[");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write(new string('█', progress));
+            Console.Write(new string(' ', progressBarLength - progress));
+            Console.Write($"] {percentage}%\r");
+            Console.ResetColor();
+        }
+
+        static void AsciiArt(string filePath)
+        {
+            try
+            {
+                using (StreamReader sr = new StreamReader(filePath))
                 {
-                    contador++;
-                    Console.SetCursorPosition(1, contador);
-                    Console.WriteLine(line);
+                    int contador = 0;
+                    string line;
+
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        contador++;
+                        Console.SetCursorPosition(1, contador);
+                        Console.WriteLine(line);
+                    }
                 }
             }
-        }
-        catch (IOException e)
-        {
-            Console.WriteLine($"Ocorreu um erro ao ler o arquivo: {e.Message}");
-        }
-    }
-
-
-
-
- static void AsciiArt2()
-    {
-        string filePath = "asci2.txt";
-
-        try
-        {
-            using (StreamReader sr = new StreamReader(filePath))
+            catch (IOException e)
             {
-                int contador = 0;
-                string line;
-
-                while ((line = sr.ReadLine()) != null)
-                {
-                    contador++;
-                    Console.SetCursorPosition(1, contador);
-                    Console.WriteLine(line);
-                }
+                Console.WriteLine($"Ocorreu um erro ao ler o arquivo: {e.Message}");
             }
         }
-        catch (IOException e)
+
+        public void IniciarJogo()
         {
-            Console.WriteLine($"Ocorreu um erro ao ler o arquivo: {e.Message}");
-        }
-    }
-
-
-
- static void AsciiArt3()
-    {
-        string filePath = "asci3.txt";
-
-        try
-        {
-            using (StreamReader sr = new StreamReader(filePath))
-            {
-                int contador = 0;
-                string line;
-
-                while ((line = sr.ReadLine()) != null)
-                {
-                    contador++;
-                    Console.SetCursorPosition(1, contador);
-                    Console.WriteLine(line);
-                }
-            }
-        }
-        catch (IOException e)
-        {
-            Console.WriteLine($"Ocorreu um erro ao ler o arquivo: {e.Message}");
-        }
-    }
-
-
- static void AsciiArt4()
-    {
-        string filePath = "asci4.txt";
-
-        try
-        {
-            using (StreamReader sr = new StreamReader(filePath))
-            {
-                int contador = 0;
-                string line;
-
-                while ((line = sr.ReadLine()) != null)
-                {
-                    contador++;
-                    Console.SetCursorPosition(1, contador);
-                    Console.WriteLine(line);
-                }
-            }
-        }
-        catch (IOException e)
-        {
-            Console.WriteLine($"Ocorreu um erro ao ler o arquivo: {e.Message}");
-        }
-    }
-
-
- static void AsciiArt5()
-    {
-        string filePath = "asci5.txt";
-
-        try
-        {
-            using (StreamReader sr = new StreamReader(filePath))
-            {
-                int contador = 0;
-                string line;
-
-                while ((line = sr.ReadLine()) != null)
-                {
-                    contador++;
-                    Console.SetCursorPosition(1, contador);
-                    Console.WriteLine(line);
-                }
-            }
-        }
-        catch (IOException e)
-        {
-            Console.WriteLine($"Ocorreu um erro ao ler o arquivo: {e.Message}");
-        }
-    }
-
-
- static void titulo()
-    {
-        string filePath = "titulo.txt";
-
-        try
-        {
-            using (StreamReader sr = new StreamReader(filePath))
-            {
-                int contador = 0;
-                string line;
-
-                while ((line = sr.ReadLine()) != null)
-                {
-                    contador++;
-                    Console.SetCursorPosition(1, contador);
-                    Console.WriteLine(line);
-                }
-            }
-        }
-        catch (IOException e)
-        {
-            Console.WriteLine($"Ocorreu um erro ao ler o arquivo: {e.Message}");
-        }
-    }
-
-
-
-
-
-
-
-//INICIAR O JOGO
-    public void IniciarJogo()
-    {
-        int pontosJogador = 0;
-        int pontosComputador = 0;
-        int golsJogador = 0;
-        int golsComputador = 0;
-
-        
-        Console.WriteLine("Loading...");
-
-        for (int i = 0; i <= 100; i += 10)
-        {
-            DrawLoadingBar(i);
-            Thread.Sleep(200); 
-
-            if (i == 20){ 
-                LimparTela();
-                AsciiArt4();
-            }else if (i == 50){ 
-                LimparTela();
-                AsciiArt5();
-            }
-
-        }
-
-        Console.ReadLine();
-        LimparTela();
 
    
+            int pontosJogador = 0;
+            int pontosComputador = 0;
+            int golsJogador = 0;
+            int golsComputador = 0;
 
-        Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine("Digite o seu nome");
-        Console.ResetColor();
-        jogador.Nome = Console.ReadLine();
+            Console.WriteLine("Loading...");
 
-        Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine("Nome do jogador 2");
-        Console.ResetColor();
-        jogador2.Nome = Console.ReadLine();
+            for (int i = 0; i <= 100; i += 10)
+            {
+                DrawLoadingBar(i);
+                Thread.Sleep(200);
 
-
-
-
-        Console.WriteLine("Loading...");
-
-        for (int i = 0; i <= 100; i += 10)
-        {
-            DrawLoadingBar(i);
-            Thread.Sleep(200); 
-
-            if (i == 20){ 
-                LimparTela();
-                AsciiArt3();
-            }else if (i == 50){ 
-                LimparTela();
-                AsciiArt2();
+                if (i == 20)
+                {
+                    LimparTela();
+                    AsciiArt("asci4.txt");
+                }
+                else if (i == 50)
+                {
+                    LimparTela();
+                    AsciiArt("asci5.txt");
+                }
             }
 
+            Console.ReadLine();
+            LimparTela();
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Digite o seu nome");
+            Console.ResetColor();
+            jogador.Nome = Console.ReadLine();
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Nome do jogador 2");
+            Console.ResetColor();
+            jogador2.Nome = Console.ReadLine();
+
+            Console.WriteLine("Loading...");
+
+            for (int i = 0; i <= 100; i += 10)
+            {
+          DrawLoadingBar(i);
+                Thread.Sleep(200);
+
+                if (i == 20)
+                {
+                    LimparTela();
+                    AsciiArt("asci3.txt");
+                }
+             else if (i == 50)
+                {
+                    LimparTela();
+                    AsciiArt("asci2.txt");
+                }
+            }
+
+            LimparTela();
+
+            AsciiArt("asci.txt");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+
+            Console.WriteLine("\n JOGO CARREGADO! (ENTER PARA CONTINUAR)");
+            Console.ReadLine();
+
+            LimparTela();
+
+            string[] menuItems = { "jogador 1 x computador", "Jogador 1 x Jogador 2", "Créditos", "Sair" };
+            int selectedItemIndex = 0;
+
+            while (true)
+            {
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                AsciiArt("titulo.txt");
+                Console.ResetColor();
+
+          
+                for (int i = 0; i < menuItems.Length; i++)
+                {
+                    if (i == selectedItemIndex)
+                    {
+                        
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                    }
+
+                    Console.WriteLine("                                                                                         " + menuItems[i]);
+
+                    Console.ResetColor();
+                }
+
+                ConsoleKeyInfo key = Console.ReadKey();
+
+                switch (key.Key)
+                {
+                    case ConsoleKey.UpArrow:
+                        selectedItemIndex = (selectedItemIndex - 1 + menuItems.Length) % menuItems.Length;
+                        break;
+
+                    case ConsoleKey.DownArrow:
+                        selectedItemIndex = (selectedItemIndex + 1) % menuItems.Length;
+                        break;
+
+                    case ConsoleKey.Enter:
+                    if (selectedItemIndex == menuItems.Length - 1) // Verifica se a opção é "Sair"
+                    {
+                          Console.WriteLine("Até logo!");
+                          Environment.Exit(0); // Encerra o programa
+                    }else
+                        {
+                            Console.Clear();
+                            OpcaoSelecionada(selectedItemIndex, ref pontosJogador, ref pontosComputador, ref golsJogador, ref golsComputador);
+                            Console.ReadLine();
+                        }
+                                 break;
+                }
+            }
         }
 
+    private void OpcaoSelecionada(int opcao, ref int pontosJogador, ref int pontosComputador, ref int golsJogador, ref int golsComputador)
+{
+    resp = opcao; 
+
+    switch (resp)
+    {
+        case 0:
+            JogarPartidaContraComputador(ref pontosJogador, ref pontosComputador, ref golsJogador, ref golsComputador);
+            ExibirResultado(jogador.Nome, "Computador", golsJogador, golsComputador, pontosJogador, pontosComputador, energiaJogador, energiaComputador);
+            ExibirPlacar(jogador.Nome, "Computador", pontosJogador, pontosComputador);
+            break;
+
+        case 1:
+            JogarPartidaEntreJogadores(ref pontosJogador, ref pontosComputador, ref golsJogador, ref golsComputador);
+            ExibirResultado(jogador.Nome, jogador2.Nome, golsJogador, golsComputador, pontosJogador, pontosComputador, energiaJogador, energiaComputador);
+            ExibirPlacar(jogador.Nome, jogador2.Nome, pontosJogador, pontosComputador);
+            break;
+
+        case 2:
+            ExibirCreditos();
+            break;
 
 
-
-        LimparTela();
-
-
-        AsciiArt();
-        Console.WriteLine("");
-        Console.WriteLine("");
-        Console.WriteLine("");
-
-        Console.WriteLine("\n JOGO CARRREGADO! (ENTER PARA CONTINUAR)");
-        Console.ReadLine();
-
-
-        LimparTela();
-
-
-
-
-
-
-
-        
-        Console.ForegroundColor = ConsoleColor.Yellow;
-        titulo();
-        Console.ResetColor();
-        Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine($"                                                                                         1. {jogador.Nome} x Computador");
-        Console.WriteLine($"                                                                                         2. {jogador.Nome}  x {jogador2.Nome}");
-        Console.WriteLine($"                                                                                         3. CRÉDITOS E MAIS INFORMAÇÕES");
-        Console.ResetColor();
-        Console.ForegroundColor = ConsoleColor.Yellow;
-
-        Console.WriteLine("                                                                                           Escolha uma das opções (1 ou 2)");
-        resp = int.Parse(Console.ReadLine());
-        Console.ResetColor();
-
+        case 3:
        
-
-//ESCOLHER O MODO DE JOGO
-        switch (resp)
-        {
-            case 1:
-                //implementar a lógica para Computador X Jogador ****FEITO
-                JogarPartidaContraComputador(ref pontosJogador, ref pontosComputador, ref golsJogador, ref golsComputador);
-                
-                ExibirResultado(jogador.Nome, "Computador", golsJogador, golsComputador, pontosJogador, pontosComputador, energiaJogador, energiaComputador);
-
-                ExibirPlacar(jogador.Nome, "Computador", pontosJogador, pontosComputador);
-                break;
-            case 2:
-                // Implementar a lógica para jogadores x jogadores ****FEITO
-                 JogarPartidaEntreJogadores(ref pontosJogador, ref pontosComputador, ref golsJogador, ref golsComputador);
-
-                 ExibirResultado(jogador.Nome, "Computador", golsJogador, golsComputador, pontosJogador, pontosComputador, energiaJogador, energiaComputador);
-
-                 ExibirPlacar(jogador.Nome, "Computador", pontosJogador, pontosComputador);
-                break;
-
-               case 3: 
-//---------------------------------------------------------------------------CRÉDITOS----------------------------------------------------------------------------\\
-
-                LimparTela();
-
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                
-                
-                         
-                
-                  Console.WriteLine("█████████");
-                  Console.WriteLine("█▄█████▄█");
-                  Console.WriteLine("█▼▼▼▼▼");
-                  Console.WriteLine("█ Link dos 'criadores' do código (Digite 1 para acessar ou 2 para cancelar)");
-                  Console.WriteLine("█▲▲▲▲▲");     
-                  Console.WriteLine("█████████");
-                  Console.WriteLine(" ██ ██");
-                  Console.ResetColor();
-                  Console.WriteLine("");
+                Console.WriteLine("Saindo");
 
       
 
-
-                string escolha = Console.ReadLine();
-
-                  if (escolha == "1")
-                   {
-                      AbrirLinkArquivoWord();
-                   }
-                     else if (escolha == "2")
-                     {
-                        Console.WriteLine("Operação cancelada pelo usuário.");
-                     }
-                         else
-                  {
-                    Console.WriteLine("Opção inválida.");
-                   }
-
-static void AbrirLinkArquivoWord()
-    {
-        string link = "https://xplayb2studio.netlify.app";
-
-        try
+            break;
+    }
+}
+        private  void ExibirCreditos()
         {
-            Process.Start(new ProcessStartInfo
+            Console.Clear();
+            Console.WriteLine("Créditos do jogo...");
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+
+            Console.WriteLine("█████████");
+            Console.WriteLine("█▄█████▄█");
+            Console.WriteLine("█▼▼▼▼▼");
+            Console.WriteLine("█ Link dos 'criadores' do código (Digite 1 para acessar ou 2 para cancelar)");
+            Console.WriteLine("█▲▲▲▲▲");
+            Console.WriteLine("█████████");
+            Console.WriteLine(" ██ ██");
+            Console.ResetColor();
+            Console.WriteLine("");
+
+            string escolha = Console.ReadLine();
+
+            if (escolha == "1")
             {
-                FileName = "cmd",
-                Arguments = $"/c start {link}",
-                UseShellExecute = false,
-                RedirectStandardOutput = true,
-                CreateNoWindow = true
-            });
+                AbrirLinkArquivoWord();
+            }
+            else if (escolha == "2")
+            {
+                Console.WriteLine("Operação cancelada pelo usuário.");
+            }
+            else
+            {
+                Console.WriteLine("Opção inválida.");
+            }
         }
-        catch (Exception ex)
+
+      private    void AbrirLinkArquivoWord()
         {
-            Console.WriteLine($"Erro ao abrir o link: {ex.Message}");
+            string link = "https://xplayb2studio.netlify.app";
+
+            try
+            {
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = "cmd",
+                    Arguments = $"/c start {link}",
+                    UseShellExecute = false,
+                    RedirectStandardOutput = true,
+                    CreateNoWindow = true
+                });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erro ao abrir o link: {ex.Message}");
+            }
         }
-
-    }
-
-        
-                break;
-
-            default:
-                Console.WriteLine("Opção inválida. Tente novamente.");
-                break;
-        }
-
-        
-    }
-    
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -536,6 +376,8 @@ static void AbrirLinkArquivoWord()
 
         AtualizarGols(ref golsJogador, ref golsComputador, pontosJogador, pontosComputador);
         Console.WriteLine("Fim de jogo!");
+        LimparTela();
+        
 
         if (pontosJogador == pontosComputador)
     {
@@ -758,7 +600,7 @@ static void AbrirLinkArquivoWord()
         Console.ReadLine();
         LimparTela();
 
-        if (resp == 1){
+        if (resp == 0){
         
         Console.ForegroundColor = ConsoleColor.Yellow;
         Console.WriteLine("---------------------- Resultado Jogador x Computador (Caso escolheu 1)----------------------");
@@ -775,7 +617,7 @@ static void AbrirLinkArquivoWord()
         Console.ResetColor();
         }
         
-        else if (resp == 2){
+        else if (resp == 1){
    
         Console.ForegroundColor = ConsoleColor.Yellow;
         Console.WriteLine("---------------------- Resultado Jogador x jogador 2 (Caso escolheu 2)----------------------");
@@ -806,21 +648,21 @@ static void AbrirLinkArquivoWord()
         Console.ResetColor();
 
 
-         if (resp == 2 && golsJogador1 > golsJogador2 && pontosJogador>pontosComputador || golsJogador1 > golsJogador2 && pontosJogador<pontosComputador || golsJogador1 == golsJogador2 && pontosJogador>pontosComputador )
+         if (resp == 1 && golsJogador1 > golsJogador2 && pontosJogador>pontosComputador || golsJogador1 > golsJogador2 && pontosJogador<pontosComputador || golsJogador1 == golsJogador2 && pontosJogador>pontosComputador )
         {
             Console.WriteLine($"PARABÉNS, {jogador.Nome}! VOCÊ VENCEU COM {golsJogador1} GOLS.");
             Console.WriteLine($"{jogador.Nome}: {pontosJogador} pontos.");
             LimparTela();
 
         }
-        else if (resp == 2 && golsJogador2 > golsJogador1 && pontosComputador>pontosJogador || golsJogador2 > golsJogador1 && pontosComputador<pontosJogador ||golsJogador2 == golsJogador1 && pontosComputador>pontosJogador  )
+        else if (resp == 1 && golsJogador2 > golsJogador1 && pontosComputador>pontosJogador || golsJogador2 > golsJogador1 && pontosComputador<pontosJogador ||golsJogador2 == golsJogador1 && pontosComputador>pontosJogador  )
         {
             Console.WriteLine($"{jogador2.Nome} VENCEU COM {golsJogador2} GOLS.");
             Console.WriteLine($"{jogador2.Nome}: {pontosComputador} pontos.");
             LimparTela();
         }
 
-           else if (resp == 1 && golsJogador == golsJogador2 && pontosComputador == pontosJogador)
+           else if (resp == 0 && golsJogador == golsJogador2 && pontosComputador == pontosJogador)
         {
             Console.WriteLine("O JOGO TERMINOU EMPATADO!");
             Console.WriteLine("Escolha o que deseja fazer para desempatar:");
@@ -860,7 +702,7 @@ static void AbrirLinkArquivoWord()
 
         
         
-        if (resp == 1 &&  golsJogador1 > golsJogador2 && pontosJogador>pontosComputador || golsJogador1 > golsJogador2 && pontosJogador<pontosComputador || golsJogador1 == golsJogador2 && pontosJogador>pontosComputador )
+        if (resp == 0 &&  golsJogador1 > golsJogador2 && pontosJogador>pontosComputador || golsJogador1 > golsJogador2 && pontosJogador<pontosComputador || golsJogador1 == golsJogador2 && pontosJogador>pontosComputador )
         {
             Console.WriteLine($"PARABÉNS, {nomeJogador1}! VOCÊ VENCEU COM {golsJogador1} GOLS.");
             Console.WriteLine($"{nomeJogador1}: {pontosJogador} pontos.");
@@ -880,7 +722,7 @@ static void AbrirLinkArquivoWord()
 
 
         }
-        else if (resp == 1 && golsJogador2 > golsJogador1 && pontosComputador>pontosJogador || golsJogador2 > golsJogador1 && pontosComputador<pontosJogador ||golsJogador2 == golsJogador1 && pontosComputador>pontosJogador  )
+        else if (resp == 0 && golsJogador2 > golsJogador1 && pontosComputador>pontosJogador || golsJogador2 > golsJogador1 && pontosComputador<pontosJogador ||golsJogador2 == golsJogador1 && pontosComputador>pontosJogador  )
         {
             Console.WriteLine($"{nomeJogador2} VENCEU COM {golsJogador2} GOLS.");
             Console.WriteLine($"{nomeJogador2}: {pontosComputador} pontos.");
@@ -900,7 +742,7 @@ static void AbrirLinkArquivoWord()
 
 
         }
-        else if (resp == 1 && golsJogador == golsJogador2 && pontosComputador == pontosJogador)
+        else if (resp == 0 && golsJogador == golsJogador2 && pontosComputador == pontosJogador)
         {
             Console.WriteLine("O JOGO TERMINOU EMPATADO!");
             Console.WriteLine("Escolha o que deseja fazer para desempatar:");
@@ -969,7 +811,7 @@ static void AbrirLinkArquivoWord()
 
 
 
-private static void Prorrogacao()
+private void Prorrogacao()
 {
 
 
@@ -995,9 +837,9 @@ private static void Prorrogacao()
 
 
     Console.WriteLine("Escolha o modo da prorrogação (1 - Jogador vs Computador, 2 - Jogador vs Jogador): ");
-    int resp = int.Parse(Console.ReadLine());
+    
 
-    if (resp == 1)
+    if (resp == 0)
     {
 
             
@@ -1029,12 +871,20 @@ private static void Prorrogacao()
             Console.WriteLine($"Resultado da prorrogação: Jogador {pontosJogador1} ponto(s) x Computador {pontosJogador2} ponto(s)");
 
             if (pontosJogador1 > pontosJogador2)
-            { 
-                Console.WriteLine($"Resultado da prorrogação: ");
-                Console.WriteLine($"{jogo.jogador.Nome} - {pontosJogador1} ponto(s) x Computador - {pontosJogador2} ponto(s)");
-                Console.WriteLine("");                
+            {   
+                LimparTela();
+                Console.ForegroundColor = ConsoleColor.Yellow;    
+                Console.WriteLine($"------------------------------Resultado da prorrogação-------------------------------------- ");
+                Console.ResetColor();
+                Console.WriteLine($"{jogo.jogador.Nome} - {pontosJogador1} Gols x Computador - {pontosJogador2} Gols");
+                Console.ForegroundColor = ConsoleColor.Yellow;    
+                Console.WriteLine("----------------------------------------------------------------------------------------------");    
+                Console.ResetColor();        
                 Console.WriteLine($"PARABÉNS !!! {jogo.jogador.Nome} Venceu a prorrogação");
+                
 
+               
+     
 
         Console.ForegroundColor = ConsoleColor.Yellow;    
         Console.WriteLine("            '._==_==_=_.'");
@@ -1055,9 +905,18 @@ private static void Prorrogacao()
             }
             else if (pontosJogador2 > pontosJogador1)
             { 
-                Console.WriteLine($"Resultado da prorrogação:");
-                Console.WriteLine($"{jogo.jogador.Nome} - {pontosJogador1} ponto(s) x Computador - {pontosJogador2} ponto(s)");
-                Console.WriteLine($"Computador Venceu a prorrogação"); 
+             
+
+
+                Console.ForegroundColor = ConsoleColor.Yellow;    
+                Console.WriteLine($"------------------------------Resultado da prorrogação-------------------------------------- ");
+                Console.ResetColor();
+                Console.WriteLine($"{jogo.jogador.Nome} - {pontosJogador1} Gols x Computador - {pontosJogador2} Gols");
+                Console.ForegroundColor = ConsoleColor.Yellow;    
+                Console.WriteLine("----------------------------------------------------------------------------------------------");    
+                Console.ResetColor();   
+                 Console.WriteLine($"Computador Venceu a prorrogação"); 
+
 
 
         Console.ForegroundColor = ConsoleColor.Yellow;    
@@ -1082,7 +941,7 @@ private static void Prorrogacao()
             DeterminarVencedor(pontosJogador1, pontosJogador2, resp);
       
     }
-    else if (resp == 2)
+    else if (resp == 1)
     {
 
 
@@ -1106,20 +965,28 @@ private static void Prorrogacao()
 
             if (pontosJogador1 > pontosJogador2)
             { 
-                Console.WriteLine($"Resultado da prorrogação: {jogo.jogador.Nome} - {pontosJogador1} ponto(s) x Jogador 2 {pontosJogador2} ponto(s)");
-                Console.WriteLine($"{jogo.jogador.Nome} Venceu a prorrogação");
+       
+
+                Console.ForegroundColor = ConsoleColor.Yellow;    
+                Console.WriteLine($"------------------------------Resultado da prorrogação-------------------------------------- ");
+                Console.ResetColor();
+                Console.WriteLine($"{jogo.jogador.Nome} - {pontosJogador1} Gols x {jogo.jogador2.Nome} - {pontosJogador2} Gols");
+                Console.ForegroundColor = ConsoleColor.Yellow;    
+                Console.WriteLine("----------------------------------------------------------------------------------------------");    
+                Console.ResetColor();        
+                Console.WriteLine($"PARABÉNS !!! {jogo.jogador.Nome} Venceu a prorrogação");
 
 
-        Console.ForegroundColor = ConsoleColor.Yellow;    
-        Console.WriteLine("            '._==_==_=_.'");
-        Console.WriteLine("            .-\\:      /-.");
-        Console.WriteLine("           | (|:.     |) |");
-        Console.WriteLine("            '-|:.     |-'");
-        Console.WriteLine("              \\::.    /");
-        Console.WriteLine("               '::. .'");
-        Console.WriteLine("                 ) (");
-        Console.WriteLine("               _.' '._");
-        Console.ResetColor();
+                Console.ForegroundColor = ConsoleColor.Yellow;    
+                Console.WriteLine("            '._==_==_=_.'");
+                Console.WriteLine("            .-\\:      /-.");
+                Console.WriteLine("           | (|:.     |) |");
+                Console.WriteLine("            '-|:.     |-'");
+                Console.WriteLine("              \\::.    /");
+                Console.WriteLine("               '::. .'");
+                Console.WriteLine("                 ) (");
+                Console.WriteLine("               _.' '._");
+                Console.ResetColor();
 
 
 
@@ -1131,6 +998,15 @@ private static void Prorrogacao()
                 Console.WriteLine($"Resultado da prorrogação: {jogo.jogador.Nome} - {pontosJogador1} ponto(s) x {jogo.jogador2.Nome} - {pontosJogador2} ponto(s)");
                 Console.WriteLine($"{jogo.jogador2.Nome}  Venceu a prorrogação");
 
+
+                Console.ForegroundColor = ConsoleColor.Yellow;    
+                Console.WriteLine($"------------------------------Resultado da prorrogação-------------------------------------- ");
+                Console.ResetColor();
+                Console.WriteLine($"{jogo.jogador.Nome} - {pontosJogador1} Gols x {jogo.jogador2.Nome} - {pontosJogador2} Gols");
+                Console.ForegroundColor = ConsoleColor.Yellow;    
+                Console.WriteLine("----------------------------------------------------------------------------------------------");      
+                Console.ResetColor();     
+                Console.WriteLine($"{jogo.jogador2.Nome}  Venceu a prorrogação");  
 
 
         Console.ForegroundColor = ConsoleColor.Yellow;    
@@ -1190,17 +1066,17 @@ private static void DeterminarVencedor(int pontosJogador1, int pontosJogador2, i
     // Lógica para determinar o vencedor após a prorrogação
     if (pontosJogador1 > pontosJogador2)
     {
-        Console.WriteLine($"Jogador {(resp == 1 ? "" : "1")} é o vencedor da prorrogação!");
+        Console.WriteLine($"Jogador {(resp == 0 ? "" : "1")} é o vencedor da prorrogação!");
     }
     else if (pontosJogador2 > pontosJogador1)
     {
-        Console.WriteLine($"Jogador {(resp == 1 ? "Computador" : "2")} é o vencedor da prorrogação!");
+        Console.WriteLine($"Jogador {(resp == 0 ? "Computador" : "2")} é o vencedor da prorrogação!");
     }
     else
     {
         Console.WriteLine("A prorrogação terminou em empate. Vai para a disputa de pênaltis ou outro critério de desempate.");
 
-        if (resp == 1)
+        if (resp == 0)
         {
             Console.WriteLine("Iniciando a disputa de pênaltis...");
 
@@ -1316,10 +1192,16 @@ private static void DeterminarVencedor(int pontosJogador1, int pontosJogador2, i
 
 private static int CalcularPontosPRO(int[] cartasJogador, string jogadorNome, ref int energia)
 {
+
+
+    Console.Clear();
+
     Console.WriteLine($"{jogadorNome}, pressione ENTER para abrir as cartas");
     Console.ReadLine();
 
     int pontosRodada = 0;
+    int golsRodada = 0;
+ 
     Random random = new Random();
 
     for (int i = 0; i < cartasJogador.Length; i++)
@@ -1333,6 +1215,7 @@ private static int CalcularPontosPRO(int[] cartasJogador, string jogadorNome, re
             case 1:
                 Console.WriteLine("GOL - 3 pontos");
                 pontosRodada += 3;
+                golsRodada ++;
                 break;
             case 2:
                 Console.WriteLine("Pênalti - 2 pontos");
@@ -1346,6 +1229,7 @@ private static int CalcularPontosPRO(int[] cartasJogador, string jogadorNome, re
                 {
                     Console.WriteLine("GOL!!!! Você ganhou 2 pontos");
                     pontosRodada += 2;
+                     golsRodada ++;
                 }
                 else
                 {
@@ -1372,7 +1256,8 @@ private static int CalcularPontosPRO(int[] cartasJogador, string jogadorNome, re
     }
 
     Console.WriteLine($"Total de pontos na rodada: {pontosRodada}");
-    return pontosRodada;
+    Console.WriteLine($"Total de gols na rodada: {golsRodada}");
+    return golsRodada;
 }
 
 
@@ -1399,7 +1284,7 @@ private static int CalcularPontosPRO(int[] cartasJogador, string jogadorNome, re
 
 
 
-        if (resp==1){
+        if (resp==0){
          Console.WriteLine("Iniciando a disputa de pênaltis...");
 
         int pontosJogador1 = 0;
@@ -1453,7 +1338,7 @@ private static int CalcularPontosPRO(int[] cartasJogador, string jogadorNome, re
         }
 
 
-        if (resp==2){
+        if (resp==1){
         Console.WriteLine("Iniciando a disputa de pênaltis...");
 
         int pontosJogador1 = 0;
@@ -1564,7 +1449,7 @@ private static int CalcularPontosPRO(int[] cartasJogador, string jogadorNome, re
     int golsJogador2 = 0;
 
    
-        if (resp == 1)
+        if (resp == 0)
         {
 
               for (int i = 0; i < 5; i++){
@@ -1611,7 +1496,7 @@ private static int CalcularPontosPRO(int[] cartasJogador, string jogadorNome, re
             }
           }
        
-        else if (resp == 2)
+        else if (resp == 1)
         {
 
 
@@ -1783,7 +1668,7 @@ private void AtualizarGols(ref int golsJogador, ref int golsComputador, int pont
 private int[] GerarCartasAleatorias(Random random)
 {
     int[] cartas = new int[3];
-    int chanceCartaIgual = random.Next(1, 6); 
+    int chanceCartaIgual = random.Next(1, 3); 
 
     for (int i = 0; i < cartas.Length; i++)
     {
@@ -1911,7 +1796,7 @@ else
 
         //CASO AS CARTAS FOREM IGUAIS
 
-        if (cartasIguais == 2) // Se todas as cartas forem iguais
+        if (cartasIguais == 2) 
         {
             int valorCartaRepetida = cartasJogador[0]; 
 

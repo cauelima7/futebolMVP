@@ -12,4 +12,5 @@
   <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <SourceRoot Include="C:\Users\clevi\.nuget\packages\" />
   </ItemGroup>
+  
 </Project>

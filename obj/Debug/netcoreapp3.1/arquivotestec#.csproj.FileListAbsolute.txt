@@ -1,0 +1,5 @@
+C:\Users\clevi\OneDrive\Área de Trabalho\arquivotestec#\obj\Debug\netcoreapp3.1\arquivotestec#.csproj.AssemblyReference.cache
+C:\Users\clevi\OneDrive\Área de Trabalho\arquivotestec#\obj\Debug\netcoreapp3.1\arquivotestec#.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\clevi\OneDrive\Área de Trabalho\arquivotestec#\obj\Debug\netcoreapp3.1\arquivotestec#.AssemblyInfoInputs.cache
+C:\Users\clevi\OneDrive\Área de Trabalho\arquivotestec#\obj\Debug\netcoreapp3.1\arquivotestec#.AssemblyInfo.cs
+C:\Users\clevi\OneDrive\Área de Trabalho\arquivotestec#\obj\Debug\netcoreapp3.1\arquivotestec#.csproj.CoreCompileInputs.cache

@@ -27,6 +27,7 @@ class Program
     //LIMPAR A TELA
     static void LimparTela()
     {
+        
         Console.Clear();
     }
 }
@@ -120,8 +121,7 @@ class Program
             {
                 DrawLoadingBar(i);
                 Thread.Sleep(200);
-
-                if (i == 20)
+                 if (i == 20)
                 {
                     LimparTela();
                     AsciiArt("asci4.txt");
@@ -273,7 +273,7 @@ class Program
         private  void ExibirCreditos()
         {
             Console.Clear();
-            Console.WriteLine("Créditos do jogo...");
+            Console.WriteLine("Créditos do jogo ");
 
             Console.ForegroundColor = ConsoleColor.Yellow;
 
@@ -410,6 +410,8 @@ class Program
         Console.WriteLine("                                                     _.' '._");
         Console.WriteLine(" ---------------------------------------------------------------------------------------------------------------------");
         Console.ReadLine();
+
+        Environment.Exit(0);
            LimparTela();
 
         }
@@ -429,8 +431,12 @@ class Program
         Console.WriteLine("                                                    _.' '._");
         Console.WriteLine(" --------------------------------------------------------------------------------------------------------------------");
 
+        
+
 
         Console.ReadLine();
+
+        Environment.Exit(0);
           LimparTela();
         }
    
@@ -620,9 +626,19 @@ class Program
         if (resp == 0){
         
         Console.ForegroundColor = ConsoleColor.Yellow;
-        Console.WriteLine("---------------------- Resultado Jogador x Computador ----------------------");
+        Console.WriteLine($"------------------------------------------------------------------ Resultado {jogador.Nome} x Computador ------------------------------------------------------------------");
 
-   
+        
+        Console.WriteLine("                                                                            '._==_==_=_.'");
+        Console.WriteLine("                                                                            .-\\:      /-.");
+        Console.WriteLine("                                                                           | (|:.     |) |");
+        Console.WriteLine("                                                                            '-|:.     |-'");
+        Console.WriteLine("                                                                              \\::.    /");
+        Console.WriteLine("                                                                               '::. .'");
+        Console.WriteLine("                                                                                 ) (");
+        Console.WriteLine("                                                                               _.' '._");
+
+
 
         Console.ResetColor();
         Console.WriteLine($"Pontos de {nomeJogador1}: {pontosJogador} | Energias: {energiaJogador}");
@@ -630,14 +646,14 @@ class Program
         Console.WriteLine($"GOLS de {nomeJogador1}: {golsJogador1}");
         Console.WriteLine($"GOLS de {nomeJogador2}: {golsJogador2}");
         Console.ForegroundColor = ConsoleColor.Yellow;
-        Console.WriteLine("----------------------------------------------------------------------------------------------");
+        Console.WriteLine("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
         Console.ResetColor();
         }
         
         else if (resp == 1){
    
         Console.ForegroundColor = ConsoleColor.Yellow;
-        Console.WriteLine($"------------------------------------------------------------------ Resultado {jogador.Nome} x {jogador2.Nome} ------------------------------------------------------------------");
+        Console.WriteLine($"------------------------------------------------------------------ Resultado {jogador.Nome} x {jogador2.Nome} ----------------------------------------------------------------");
 
 
 
@@ -661,7 +677,7 @@ class Program
         Console.WriteLine($"                                                            GOLS de {jogador.Nome}: {golsJogador1}");
         Console.WriteLine($"                                                            GOLS de {jogador2.Nome}: {golsJogador2}");
         Console.ForegroundColor = ConsoleColor.Yellow;
-        Console.WriteLine("-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+        Console.WriteLine("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
         Console.ResetColor();
 
 
@@ -721,7 +737,7 @@ class Program
 
         
         
-        if (resp == 0 &&  golsJogador1 > golsJogador2 && pontosJogador>pontosComputador || golsJogador1 > golsJogador2 && pontosJogador<pontosComputador || golsJogador1 == golsJogador2 && pontosJogador>pontosComputador )
+        if (resp == 1 &&  golsJogador1 > golsJogador2 && pontosJogador>pontosComputador || golsJogador1 > golsJogador2 && pontosJogador<pontosComputador || golsJogador1 == golsJogador2 && pontosJogador>pontosComputador )
         {
             Console.WriteLine($"PARABÉNS, {nomeJogador1}! VOCÊ VENCEU COM {golsJogador1} GOLS.");
             Console.WriteLine($"{nomeJogador1}: {pontosJogador} pontos.");
@@ -900,23 +916,23 @@ private void Prorrogacao()
                 Console.ForegroundColor = ConsoleColor.Yellow;    
                 Console.WriteLine("----------------------------------------------------------------------------------------------");    
                 Console.ResetColor();        
-                Console.WriteLine($"PARABÉNS !!! {jogador.Nome} Venceu a prorrogação");
+                
                 
 
                
      
 
         Console.ForegroundColor = ConsoleColor.Yellow;    
-        Console.WriteLine("            '._==_==_=_.'");
-        Console.WriteLine("            .-\\:      /-.");
-        Console.WriteLine("           | (|:.     |) |");
-        Console.WriteLine("            '-|:.     |-'");
-        Console.WriteLine("              \\::.    /");
-        Console.WriteLine("               '::. .'");
-        Console.WriteLine("                 ) (");
-        Console.WriteLine("               _.' '._");
+        Console.WriteLine("                                         '._==_==_=_.'");
+        Console.WriteLine("                                         .-\\:      /-.");
+        Console.WriteLine("                                        | (|:.     |) |");
+        Console.WriteLine("                                         '-|:.     |-'");
+        Console.WriteLine("                                           \\::.    /");
+        Console.WriteLine("                                            '::. .'");
+        Console.WriteLine("                                              ) (");
+        Console.WriteLine("                                            _.' '._");
         Console.ResetColor();
-                        
+        Console.WriteLine($"                    PARABÉNS !!! {jogador.Nome} Venceu a prorrogação");            
 
 
 
@@ -936,21 +952,22 @@ private void Prorrogacao()
                 Console.ForegroundColor = ConsoleColor.Yellow;    
                 Console.WriteLine("----------------------------------------------------------------------------------------------");    
                 Console.ResetColor();   
-                 Console.WriteLine($"Computador Venceu a prorrogação"); 
+                
 
 
 
+     
         Console.ForegroundColor = ConsoleColor.Yellow;    
-        Console.WriteLine("            '._==_==_=_.'");
-        Console.WriteLine("            .-\\:      /-.");
-        Console.WriteLine("           | (|:.     |) |");
-        Console.WriteLine("            '-|:.     |-'");
-        Console.WriteLine("              \\::.    /");
-        Console.WriteLine("               '::. .'");
-        Console.WriteLine("                 ) (");
-        Console.WriteLine("               _.' '._");
+        Console.WriteLine("                                         '._==_==_=_.'");
+        Console.WriteLine("                                         .-\\:      /-.");
+        Console.WriteLine("                                        | (|:.     |) |");
+        Console.WriteLine("                                         '-|:.     |-'");
+        Console.WriteLine("                                           \\::.    /");
+        Console.WriteLine("                                            '::. .'");
+        Console.WriteLine("                                              ) (");
+        Console.WriteLine("                                            _.' '._");
         Console.ResetColor();
-
+        Console.WriteLine($"                            Computador Venceu a prorrogação"); 
 
 
 
@@ -999,21 +1016,20 @@ private void Prorrogacao()
                 Console.ForegroundColor = ConsoleColor.Yellow;    
                 Console.WriteLine("----------------------------------------------------------------------------------------------");     
                 Console.ResetColor();        
-                Console.WriteLine($"PARABÉNS !!! {jogador.Nome} Venceu a prorrogação");
+                
 
 
-                Console.ForegroundColor = ConsoleColor.Yellow;    
-                Console.WriteLine("            '._==_==_=_.'");
-                Console.WriteLine("            .-\\:      /-.");
-                Console.WriteLine("           | (|:.     |) |");
-                Console.WriteLine("            '-|:.     |-'");
-                Console.WriteLine("              \\::.    /");
-                Console.WriteLine("               '::. .'");
-                Console.WriteLine("                 ) (");
-                Console.WriteLine("               _.' '._");
-                Console.ResetColor();
-
-
+        Console.ForegroundColor = ConsoleColor.Yellow;    
+        Console.WriteLine("                                         '._==_==_=_.'");
+        Console.WriteLine("                                         .-\\:      /-.");
+        Console.WriteLine("                                        | (|:.     |) |");
+        Console.WriteLine("                                         '-|:.     |-'");
+        Console.WriteLine("                                           \\::.    /");
+        Console.WriteLine("                                            '::. .'");
+        Console.WriteLine("                                              ) (");
+        Console.WriteLine("                                            _.' '._");
+        Console.ResetColor();
+        Console.WriteLine($"PARABÉNS !!! {jogador.Nome} Venceu a prorrogação");
 
 
 
@@ -1029,21 +1045,19 @@ private void Prorrogacao()
                 Console.ForegroundColor = ConsoleColor.Yellow;    
                 Console.WriteLine("----------------------------------------------------------------------------------------------");      
                 Console.ResetColor();     
+                
+
+                Console.ForegroundColor = ConsoleColor.Yellow;    
+                Console.WriteLine("                                         '._==_==_=_.'");
+                Console.WriteLine("                                         .-\\:      /-.");
+                Console.WriteLine("                                        | (|:.     |) |");
+                Console.WriteLine("                                         '-|:.     |-'");
+                Console.WriteLine("                                           \\::.    /");
+                Console.WriteLine("                                            '::. .'");
+                Console.WriteLine("                                              ) (");
+                Console.WriteLine("                                            _.' '._");
+                Console.ResetColor();
                 Console.WriteLine($"{jogador2.Nome}  Venceu a prorrogação");  
-
-
-        Console.ForegroundColor = ConsoleColor.Yellow;    
-        Console.WriteLine("            '._==_==_=_.'");
-        Console.WriteLine("            .-\\:      /-.");
-        Console.WriteLine("           | (|:.     |) |");
-        Console.WriteLine("            '-|:.     |-'");
-        Console.WriteLine("              \\::.    /");
-        Console.WriteLine("               '::. .'");
-        Console.WriteLine("                 ) (");
-        Console.WriteLine("               _.' '._");
-        Console.ResetColor();
-
-
 
             }
 
@@ -1337,7 +1351,7 @@ private static int CalcularPontosPRO(int[] cartasJogador, string jogadorNome, re
 
     if (resp == 0)
     {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 8; i++)
         {
             Console.WriteLine($"Pênalti {i + 1}: Escolha o canto (1 - Esquerda, 2 - Centro, 3 - Direita) - {jogador.Nome}");
             int escolhaJogador = int.Parse(Console.ReadLine());
@@ -1357,7 +1371,7 @@ private static int CalcularPontosPRO(int[] cartasJogador, string jogadorNome, re
                 Console.WriteLine($"{jogador.Nome} errou o pênalti!");
             }
 
-            LimparTela();
+
 
             Console.WriteLine("Computador fez a sua escolha");
 
@@ -1368,37 +1382,69 @@ private static int CalcularPontosPRO(int[] cartasJogador, string jogadorNome, re
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine($"Computador marcou o pênalti!");
                 Console.ResetColor();
+                pontosJogador2++;
             }
             else
             {
                 Console.WriteLine($"Computador errou o pênalti!");
             }
         }
+
+            LimparTela();
+    Console.WriteLine("-------------------- Resultado Pênaltis ------------------------");
+    Console.WriteLine($"{jogador.Nome}: {pontosJogador1} x {pontosJogador2} : Computador");
+    Console.WriteLine("-----------------------------------------------------------------");
+
+    if (pontosJogador1 > pontosJogador2)
+    {
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.WriteLine($"PARABÉNS, {jogador.Nome}! Você venceu na disputa de pênaltis.");
+        Console.ResetColor();
+    }
+    else if (pontosJogador2 > pontosJogador1)
+    {
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.WriteLine($"PARABÉNS, Computador! Você venceu na disputa de pênaltis.");
+        Console.ResetColor();
+    }
     }
     else if (resp == 1)
     {
+
+
         for (int i = 0; i < 5; i++)
         {
             Console.WriteLine($"Pênalti {i + 1}: Escolha o canto (1 - Esquerda, 2 - Centro, 3 - Direita) - {jogador.Nome}");
             int escolhaJogador = int.Parse(Console.ReadLine());
+        
 
             Random random = new Random();
             int escolhaComputador = random.Next(1, 4);
 
-            Console.WriteLine($"O Computador escolheu o canto {escolhaComputador}");
+
 
             if (escolhaJogador == escolhaComputador)
-            {
+            {   
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine($"{jogador.Nome} marcou o pênalti!");
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.ResetColor();
                 pontosJogador1++;
             }
             else
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"{jogador.Nome} errou o pênalti!");
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.ResetColor();
             }
         }
 
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 5; i++)
         {
             Console.WriteLine($"Pênalti {i + 1}: Escolha o canto (1 - Esquerda, 2 - Centro, 3 - Direita) - {jogador2.Nome}");
             int escolhaJogador2 = int.Parse(Console.ReadLine());
@@ -1406,21 +1452,28 @@ private static int CalcularPontosPRO(int[] cartasJogador, string jogadorNome, re
             Random random = new Random();
             int escolhaComputador = random.Next(1, 4);
 
-            Console.WriteLine($"O Computador escolheu o canto {escolhaComputador}");
 
             if (escolhaJogador2 == escolhaComputador)
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine($"{jogador2.Nome} marcou o pênalti!");
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
                 Console.ResetColor();
                 pontosJogador2++;
             }
             else
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"{jogador2.Nome} errou o pênalti!");
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.ResetColor();
             }
         }
-    }
+    
     LimparTela();
     Console.WriteLine("-------------------- Resultado Pênaltis ------------------------");
     Console.WriteLine($"{jogador.Nome}: {pontosJogador1} x {pontosJogador2} :{jogador2.Nome}");
@@ -1437,6 +1490,7 @@ private static int CalcularPontosPRO(int[] cartasJogador, string jogadorNome, re
         Console.ForegroundColor = ConsoleColor.Yellow;
         Console.WriteLine($"PARABÉNS, {jogador2.Nome}! Você venceu na disputa de pênaltis.");
         Console.ResetColor();
+    }
     }
 }
 
@@ -1615,7 +1669,9 @@ private static int CalcularPontosPRO(int[] cartasJogador, string jogadorNome, re
 //PLACAR DE PONTOS
     private void ExibirPlacar(string nomeJogador1, string nomeJogador2, int pontosJogador1, int pontosJogador2)
     {
+        
         Console.WriteLine($"Placar de pontos: {nomeJogador1} ({pontosJogador1}) - {nomeJogador2} ({pontosJogador2})");
+        Console.WriteLine($"Placar de gols: {nomeJogador1} ({golsJogador1}) - {nomeJogador2} ({golsComputador})");
     }
 
 
@@ -1802,7 +1858,7 @@ else
 {
 
 
-    Console.WriteLine($"{jogadorNome}, pressione ENTER para abrir as cartas");
+    Console.WriteLine($"{jogador.Nome}, pressione ENTER para abrir as cartas");
     Console.ReadLine();
 
     for (int i = 0; i < cartasJogador.Length; i++)
@@ -1867,6 +1923,15 @@ else
             {
                 case 1:
                     Console.WriteLine("GOL ");
+
+                    if(jogadorNome == "Computador"){
+                    golsComputador++;
+
+                    }else{
+                        
+                        golsJogador++;
+                    }
+
                     return 3;
                 case 2:
                     
@@ -1939,3 +2004,7 @@ class Computador
     public string Nome { get; set; } = "Computador";
     public int Energia { get; set; } = 10;
 }
+
+
+
+

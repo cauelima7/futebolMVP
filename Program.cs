@@ -130,11 +130,13 @@ class Program
                 {
                     LimparTela();
                     AsciiArt("asci5.txt");
+                }else if (i== 100)
+                { 
+                    LimparTela();
                 }
             }
 
-            Console.ReadLine();
-            LimparTela();
+
 
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Digite o seu nome");
@@ -164,6 +166,9 @@ class Program
            
                     AsciiArt("asci2.txt");
                    
+                }else if (i== 100)
+                { 
+                    LimparTela();
                 }
             }
 
@@ -171,17 +176,17 @@ class Program
             
            
             AsciiArt("asci.txt");
+
             
             Console.WriteLine("");
             Console.WriteLine("");
             Console.WriteLine("");
 
-            Console.WriteLine("\n JOGO CARREGADO! (ENTER PARA CONTINUAR)");
-            Console.ReadLine();
+    
 
             LimparTela();
 
-            string[] menuItems = { "jogador 1 x computador", "Jogador 1 x Jogador 2", "Créditos", "Sair" };
+            string[] menuItems = { $"{jogador.Nome } x computador", $"{jogador.Nome} x {jogador2.Nome}", "Créditos", "Sair" };
             int selectedItemIndex = 0;
 
             while (true)
@@ -190,6 +195,11 @@ class Program
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 AsciiArt("titulo.txt");
                 Console.ResetColor();
+                Console.WriteLine("                                                                                       Não copiamos isso de nenhum lugar  :)                                 ");
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
+
 
           
                 for (int i = 0; i < menuItems.Length; i++)
@@ -218,6 +228,8 @@ class Program
                         break;
 
                     case ConsoleKey.Enter:
+
+                    //Poderá ser colocar na opção 3
                     if (selectedItemIndex == menuItems.Length - 1) // Verifica se a opção é "Sair"
                     {
                           Console.WriteLine("Até logo!");
@@ -703,6 +715,7 @@ class Program
             Console.WriteLine("2. Gol de ouro");
             Console.WriteLine("3. Permanecer empatado");
             Console.WriteLine("4. Prorrogação");
+            Console.WriteLine("Insira a opção nos números do teclado");
        
 
            opcaoDesempate = int.Parse(Console.ReadLine());
@@ -785,7 +798,7 @@ class Program
             Console.WriteLine("2. Gol de ouro");
             Console.WriteLine("3. Permanecer empatado");
             Console.WriteLine("4. Prorrogação");
-       
+            Console.WriteLine("Insira a opção nos números do teclado");
 
            opcaoDesempate = int.Parse(Console.ReadLine());
 
@@ -1475,9 +1488,23 @@ private static int CalcularPontosPRO(int[] cartasJogador, string jogadorNome, re
         }
     
     LimparTela();
+    Console.ForegroundColor = ConsoleColor.Yellow; 
     Console.WriteLine("-------------------- Resultado Pênaltis ------------------------");
+        Console.ForegroundColor = ConsoleColor.Yellow;    
+        Console.WriteLine("            '._==_==_=_.'");
+        Console.WriteLine("            .-\\:      /-.");
+        Console.WriteLine("           | (|:.     |) |");
+        Console.WriteLine("            '-|:.     |-'");
+        Console.WriteLine("              \\::.    /");
+        Console.WriteLine("               '::. .'");
+        Console.WriteLine("                 ) (");
+        Console.WriteLine("               _.' '._");
+        Console.ResetColor();
+       
+
     Console.WriteLine($"{jogador.Nome}: {pontosJogador1} x {pontosJogador2} :{jogador2.Nome}");
     Console.WriteLine("-----------------------------------------------------------------");
+    Console.ResetColor();
 
     if (pontosJogador1 > pontosJogador2)
     {
@@ -1550,22 +1577,29 @@ private static int CalcularPontosPRO(int[] cartasJogador, string jogadorNome, re
             Random random = new Random();
             int escolhaComputador = random.Next(1, 4);
 
-            Console.WriteLine($"O Computador escolheu o canto {escolhaComputador}");
-
-            if (escolhaJogador == escolhaComputador)
-            {
+               if (escolhaJogador == escolhaComputador)
+            {   
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
                 Console.WriteLine($"{jogador.Nome} marcou o gol de ouro!");
                 golsJogador1++;
                 break;
             }
             else
-            {
+            {   
+                
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
                 Console.WriteLine($"{jogador.Nome} errou o gol de ouro!");
             }
 
-            escolhaComputador = random.Next(1, 4);
 
             Console.WriteLine($"O Computador escolheu o canto {escolhaComputador}");
+
+            escolhaComputador = random.Next(1, 4);
+
 
             }
 

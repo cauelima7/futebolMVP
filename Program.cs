@@ -106,6 +106,10 @@ class Program
             }
         }
 
+
+      
+
+
         public void IniciarJogo()
         {
 
@@ -191,14 +195,32 @@ class Program
 
             while (true)
             {
+                string[] frases = { "'Fala zezé'", "'Você vão ter que me engolir'", "'Eu sou o milior'", "'Flamengo não é time é seleção'", "'Errei fui mlk'", "'Pelé calado é um poeta'", "'oto patamá'","'Cincum????'"};
+
+                Random random = new Random();
+                int a = random.Next(0, frases.Length);
+
+
+
+
                 Console.Clear();
+        
+
+          
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 AsciiArt("titulo.txt");
+   
+
+           
+                Console.WriteLine("");
+
+                
+        
+
                 Console.ResetColor();
-                Console.WriteLine("                                                                                       Não copiamos isso de nenhum lugar  :)                                 ");
+                Console.WriteLine($"                                                                                       {frases[a]}                                ");
                 Console.WriteLine("");
-                Console.WriteLine("");
-                Console.WriteLine("");
+   
 
 
           

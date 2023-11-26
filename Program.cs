@@ -200,7 +200,7 @@ class Program
 
             while (true)
             {
-                string[] frases = { "'Fala zezé'", "'Vocês vão ter que me engolir - Zagallo '", "'Eu sou o milior - Cerrisete'", "'Flamengo não é time é seleção'", "'Errei fui mlk - Menino Ney'", "'Pelé calado é um poeta - Romário'", "'oto patamá - Bruno Henrique'","'Cincum??? - Jorge Jesus'"};
+                string[] frases = { "'Prefiro ajudar na briga'","Fala zezé'", "'Vocês vão ter que me engolir'", "'Eu sou o milior - Cerrisete'", "'Não é time é seleção'", "'Errei fui mlk'", "'Pelé calado é um poeta'", "'oto patamá'","'Cincum???'"};
             
                 Random random = new Random();
                 int a = random.Next(0, frases.Length);
@@ -225,7 +225,7 @@ class Program
         
 
                 Console.ResetColor();
-
+                Console.WriteLine("Obs: Menu controlado pelas setas do teclado ↓-↑");
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine($"                                                                                     {frases[a]}                                ");
                 Console.WriteLine("");

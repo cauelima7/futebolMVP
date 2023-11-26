@@ -442,12 +442,14 @@ class Program
         Console.WriteLine("Aperte ENTER para começar");
         Console.ReadLine();
 
+        int sorteComeçar = random.Next(0, 2);
+
         while (energiaJogador1 > 0 && energiaJogador2 > 0)
         {
             LimparTela();
             ExibirStatus(energiaJogador1, jogador2.Nome, energiaJogador2, pontosJogador, pontosComputador);
 
-                int sorteComeçar = random.Next(0, 2);
+                
 
             Console.WriteLine("\n\n\n");
 
@@ -463,6 +465,18 @@ class Program
             int pontos1 = CalcularPontos(cartasJogador1, jogador.Nome, ref energiaJogador1);
             pontosJogador += pontos1;
             energiaJogador1--;
+
+            // Vez do jogador 2
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"Vez de {jogador2.Nome}");
+            Console.ResetColor();
+            
+            int[] cartasJogador2 = GerarCartasAleatorias(random);
+            int pontos2 = CalcularPontos(cartasJogador2, jogador2.Nome, ref energiaJogador2);
+            pontosComputador += pontos2;
+            energiaJogador2--;
+
+
             } else if (sorteComeçar == 1){
 
             // Vez do jogador 2
@@ -474,6 +488,17 @@ class Program
             int pontos2 = CalcularPontos(cartasJogador2, jogador2.Nome, ref energiaJogador2);
             pontosComputador += pontos2;
             energiaJogador2--;
+
+
+            // Vez do jogador 1
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"Vez de {jogador.Nome}");
+            Console.ResetColor();
+            
+            int[] cartasJogador1 = GerarCartasAleatorias(random);
+            int pontos1 = CalcularPontos(cartasJogador1, jogador.Nome, ref energiaJogador1);
+            pontosJogador += pontos1;
+            energiaJogador1--;
             }
         }
 
@@ -595,8 +620,7 @@ class Program
             Console.WriteLine("\n\n\n");
 
             //-----------------------------------Vez do jogador de jogar ***FEITO-------------------------------------------------------
-
-            if ( sorteComeçar == 0){
+            
             
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($"Vez de {jogador.Nome}");
@@ -627,41 +651,7 @@ class Program
         
             energiaComputador--;
 
-            } else if (sorteComeçar == 1){
-
-
-
-            //-------------------------------Vez do Computador de jogar ***FEITO-------------------------------------------------------\\
-            Console.ForegroundColor = ConsoleColor.Red;
-
-            Console.WriteLine($"Vez do Computador");
-            Console.ResetColor();
-
-            //--------------------------------------------------------------------------------------------------------------------------\\
-
-
-            int[] cartasComputador = GerarCartasAleatorias(random);
-            int pontosComp = CalcularPontos(cartasComputador, "Computador", ref energiaComputador);
-            pontosComputador += pontosComp;
-
-            //-------------------------Reduzir energia do computador após escolha ***FEITO-------------------------------------------------\\
-            energiaComputador--;
-            //--------------------------------------------------------------------------------------------------------------------------\\
-
-
-
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine($"Vez de {jogador.Nome}");
-            Console.ResetColor();
-            Console.ReadLine();
-            int[] cartasJogador = GerarCartasAleatorias(random);
-            int pontos = CalcularPontos(cartasJogador, jogador.Nome, ref energiaJogador);
-            pontosJogador += pontos;
-
-
-            energiaJogador--;
-
-            }
+    
             
         }
         AtualizarGols(ref golsJogador, ref golsComputador, pontosJogador, pontosComputador);
@@ -1374,12 +1364,7 @@ private static int CalcularPontosPRO(int[] cartasJogador, string jogadorNome, re
 {
     Console.Clear();
 
-    if (aguardarInput)
-    {
-        
-        Console.ReadLine();
-    }
-
+  
     int pontosRodada = 0;
     int golsRodada = 0;
 

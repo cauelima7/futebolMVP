@@ -195,13 +195,13 @@ class Program
 
             LimparTela();
 
-            string[] menuItems = { $"{jogador.Nome } x computador", $"{jogador.Nome} x {jogador2.Nome}", "Créditos", "Sair" };
+            string[] menuItems = { $"{jogador.Nome } x computador", $"{jogador.Nome} x {jogador2.Nome}", "Créditos", "Como funciona e regras", "Sair" };
             int selectedItemIndex = 0;
 
             while (true)
             {
                 string[] frases = { "'Fala zezé'", "'Vocês vão ter que me engolir - Zagallo '", "'Eu sou o milior - Cerrisete'", "'Flamengo não é time é seleção'", "'Errei fui mlk - Menino Ney'", "'Pelé calado é um poeta - Romário'", "'oto patamá - Bruno Henrique'","'Cincum??? - Jorge Jesus'"};
-
+            
                 Random random = new Random();
                 int a = random.Next(0, frases.Length);
 
@@ -214,6 +214,8 @@ class Program
           
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 AsciiArt("titulo.txt");
+
+              
    
 
            
@@ -223,10 +225,12 @@ class Program
         
 
                 Console.ResetColor();
+
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine($"                                                                                     {frases[a]}                                ");
                 Console.WriteLine("");
-   
-
+                Console.ResetColor();
+            
 
           
                 for (int i = 0; i < menuItems.Length; i++)
@@ -234,6 +238,8 @@ class Program
                     if (i == selectedItemIndex)
                     {
                         Console.ForegroundColor = ConsoleColor.Yellow;
+
+                    
                         
                         
                     }
@@ -241,6 +247,9 @@ class Program
                     Console.WriteLine("                                                                                       " + menuItems[i]);
 
                     Console.ResetColor();
+
+
+                  
                 }
 
                 ConsoleKeyInfo key = Console.ReadKey();
@@ -305,7 +314,86 @@ class Program
             break;
 
 
-        case 3:
+        case 3: 
+
+
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
+  
+
+
+
+
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        AsciiArt("figure2.txt");
+        Console.ResetColor();
+
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
+
+
+        Console.WriteLine("-Dois jogadores entram com seus nomes.");
+        Console.WriteLine("-Sorteia-se quem começa.");
+
+        // Desenvolvimento do Jogo
+        Console.WriteLine("\nCada jogador inicia com 10 energias, 0 gols e 0 pontos.");
+
+        // Resolução de Cartas
+        Console.WriteLine("\nResolução de Cartas:");
+        Console.WriteLine("-Se as três cartas são \"Gol\", o jogador marca um ponto e passa a vez.");
+        Console.WriteLine("-Se as três cartas são \"Energia\", o jogador ganha uma energia e passa a vez.");
+        Console.WriteLine("-Se as três cartas são \"Pênalti\", o jogador escolhe e o adversário tenta defender.");
+        Console.WriteLine("-Se defender, não há gol; se não defender, o jogador marca dois pontos.");
+        Console.WriteLine("-Se as três cartas são \"Falta\", o jogador passa a vez.");
+        Console.WriteLine("-Se as três cartas são \"Cartão Amarelo\", o jogador perde uma energia.");
+        Console.WriteLine("-Se as três cartas são \"Cartão Vermelho\", o jogador perde duas energias.");
+
+        // Pontuação
+        Console.WriteLine("\nPontuação:");
+        Console.WriteLine("-Gol: 3 pontos.");
+        Console.WriteLine("-Pênalti: 2 pontos.");
+        Console.WriteLine("-Falta: 1 ponto.");
+        Console.WriteLine("-Cartão Amarelo: 1 ponto.");
+        Console.WriteLine("-Cartão Vermelho: 0 pontos.");
+        Console.WriteLine("-Energia: 2 pontos.");
+
+        // Condições de Vitória ou Empate
+        Console.WriteLine("\nCondições de Vitória ou Empate:");
+        Console.WriteLine("A partida empata se:");
+        Console.WriteLine(" - Número de gols e pontuação são iguais.");
+        Console.WriteLine("A partida estabelece o vencedor se:");
+        Console.WriteLine(" - Número de energias de ambos os jogadores acabar.");
+        Console.WriteLine(" - Um jogador finalizar suas jogadas e o outro ainda tiver energias.");
+        Console.WriteLine("Se houver empate, considera-se o número de gols e a pontuação para determinar o vencedor.");
+
+
+        Console.WriteLine("");
+    
+              
+
+        Console.ForegroundColor = ConsoleColor.DarkBlue;
+
+                Console.WriteLine("Regras");
+                Console.WriteLine("\n-Não bata no amiguinho se perder ou o contrário");
+                Console.WriteLine("\n-Espere a vez do amiguinho");
+                Console.WriteLine("\n-Não é o flamengo que é seleção e sim o Vasco, respeitem o Cruz maltino!");
+         Console.ResetColor();
+
+         Console.WriteLine("");
+
+         Console.WriteLine("Aperte ENTER para voltar pro menu inicial");
+
+
+            
+            
+            break;  
+
+
+        case 4:
        
                 Console.WriteLine("Saindo");
 

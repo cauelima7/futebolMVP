@@ -1,4 +1,3 @@
-C:\Users\clevi\OneDrive\Área de Trabalho\arquivotestec#\obj\Debug\net7.0\arquivotestec#.csproj.AssemblyReference.cache
 C:\Users\clevi\OneDrive\Área de Trabalho\arquivotestec#\obj\Debug\net7.0\arquivotestec#.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\clevi\OneDrive\Área de Trabalho\arquivotestec#\obj\Debug\net7.0\arquivotestec#.AssemblyInfoInputs.cache
 C:\Users\clevi\OneDrive\Área de Trabalho\arquivotestec#\obj\Debug\net7.0\arquivotestec#.AssemblyInfo.cs
@@ -13,3 +12,4 @@ C:\Users\clevi\OneDrive\Área de Trabalho\arquivotestec#\obj\Debug\net7.0\refint
 C:\Users\clevi\OneDrive\Área de Trabalho\arquivotestec#\obj\Debug\net7.0\arquivotestec#.pdb
 C:\Users\clevi\OneDrive\Área de Trabalho\arquivotestec#\obj\Debug\net7.0\arquivotestec#.genruntimeconfig.cache
 C:\Users\clevi\OneDrive\Área de Trabalho\arquivotestec#\obj\Debug\net7.0\ref\arquivotestec#.dll
+C:\Users\clevi\OneDrive\Área de Trabalho\arquivotestec#\obj\Debug\net7.0\arquivotestec#.csproj.AssemblyReference.cache

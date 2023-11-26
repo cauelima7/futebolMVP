@@ -1,6 +1,8 @@
-Para rodar o código do jogo, necessita de duas coisas: 
+Para rodar o código do jogo, necessita de três coisas: 
+
+-Rodar no Visual Studio Code não no Visual Studio.
 
 -Baixar o dotnet do c# - link: https://dotnet.microsoft.com/pt-br/download
 
--Depois ir no terminal e digitar "dotnet run"
+-Depois ir no terminal do VS code e digitar "dotnet run"
 (obs: coloque dotnet new console antes só para remediar)

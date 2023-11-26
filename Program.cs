@@ -138,9 +138,13 @@ class Program
                 { 
                     LimparTela();
                 }
-            }
+            }   
 
+            Console.ForegroundColor = ConsoleColor.Yellow;
 
+            AsciiArt("título2.txt");
+
+            Console.ResetColor();
 
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Digite o seu nome");
@@ -152,11 +156,12 @@ class Program
             Console.ResetColor();
             jogador2.Nome = Console.ReadLine();
 
+            LimparTela();
             Console.WriteLine("Loading...");
 
             for (int i = 0; i <= 100; i += 10)
             {
-          DrawLoadingBar(i);
+                DrawLoadingBar(i);
                 Thread.Sleep(200);
 
                 if (i == 20)
@@ -195,7 +200,7 @@ class Program
 
             while (true)
             {
-                string[] frases = { "'Fala zezé'", "'Você vão ter que me engolir'", "'Eu sou o milior'", "'Flamengo não é time é seleção'", "'Errei fui mlk'", "'Pelé calado é um poeta'", "'oto patamá'","'Cincum????'"};
+                string[] frases = { "'Fala zezé'", "'Vocês vão ter que me engolir - Zagallo '", "'Eu sou o milior - Cerrisete'", "'Flamengo não é time é seleção'", "'Errei fui mlk - Menino Ney'", "'Pelé calado é um poeta - Romário'", "'oto patamá - Bruno Henrique'","'Cincum??? - Jorge Jesus'"};
 
                 Random random = new Random();
                 int a = random.Next(0, frases.Length);
@@ -218,7 +223,7 @@ class Program
         
 
                 Console.ResetColor();
-                Console.WriteLine($"                                                                                       {frases[a]}                                ");
+                Console.WriteLine($"                                                                                     {frases[a]}                                ");
                 Console.WriteLine("");
    
 
@@ -228,11 +233,12 @@ class Program
                 {
                     if (i == selectedItemIndex)
                     {
-                        
                         Console.ForegroundColor = ConsoleColor.Yellow;
+                        
+                        
                     }
 
-                    Console.WriteLine("                                                                                         " + menuItems[i]);
+                    Console.WriteLine("                                                                                       " + menuItems[i]);
 
                     Console.ResetColor();
                 }
@@ -243,15 +249,17 @@ class Program
                 {
                     case ConsoleKey.UpArrow:
                         selectedItemIndex = (selectedItemIndex - 1 + menuItems.Length) % menuItems.Length;
+  
                         break;
 
                     case ConsoleKey.DownArrow:
                         selectedItemIndex = (selectedItemIndex + 1) % menuItems.Length;
+                     
                         break;
 
                     case ConsoleKey.Enter:
 
-                    //Poderá ser colocar na opção 3
+                    //Poderá ser colocado na opção 3
                     if (selectedItemIndex == menuItems.Length - 1) // Verifica se a opção é "Sair"
                     {
                           Console.WriteLine("Até logo!");
@@ -291,6 +299,8 @@ class Program
             break;
 
         case 2:
+
+        
             ExibirCreditos();
             break;
 
@@ -307,14 +317,49 @@ class Program
         private  void ExibirCreditos()
         {
             Console.Clear();
-            Console.WriteLine("Créditos do jogo ");
+            
+            for (int i = 0; i <= 100; i += 10)
+            {
+                DrawLoadingBar(i);
+                Thread.Sleep(200);
+
+                if (i == 10)
+                {
+                    LimparTela();
+                    AsciiArt("deseC.txt");
+                }
+             else if (i == 50)
+                {
+                    LimparTela();
+           
+                    AsciiArt("DeseC2.txt");
+                   
+                } else if(i == 70){
+                    
+                    LimparTela();
+                    AsciiArt("DeseC3.txt");
+
+                }else if (i == 80){
+                    LimparTela();
+                    AsciiArt("DeseC4.txt");
+                }
+                else if (i== 100)
+                { 
+                    LimparTela();
+                }
+            }
 
             Console.ForegroundColor = ConsoleColor.Yellow;
+
+            AsciiArt("frases4.txt");
+            Console.WriteLine("");
+            Console.WriteLine("");
+
 
             Console.WriteLine("█████████");
             Console.WriteLine("█▄█████▄█");
             Console.WriteLine("█▼▼▼▼▼");
-            Console.WriteLine("█ Link dos 'criadores' do código (Digite 1 para acessar ou 2 para cancelar)");
+            Console.WriteLine("█ Link do 'criador' do código (Digite 1 para acessar ou 2 para cancelar)");
             Console.WriteLine("█▲▲▲▲▲");
             Console.WriteLine("█████████");
             Console.WriteLine(" ██ ██");

@@ -326,18 +326,24 @@ class Program
                 if (i == 10)
                 {
                     LimparTela();
+                    Console.ForegroundColor = ConsoleColor.Green;
                     AsciiArt("deseC.txt");
+                    Console.ResetColor();
+
                 }
              else if (i == 50)
                 {
                     LimparTela();
-           
+                    Console.ForegroundColor = ConsoleColor.Yellow;
                     AsciiArt("DeseC2.txt");
+                    Console.ResetColor();
                    
                 } else if(i == 70){
                     
                     LimparTela();
+                    Console.ForegroundColor = ConsoleColor.DarkBlue;
                     AsciiArt("DeseC3.txt");
+                    Console.ResetColor();
 
                 }else if (i == 80){
                     LimparTela();
@@ -441,28 +447,34 @@ class Program
             LimparTela();
             ExibirStatus(energiaJogador1, jogador2.Nome, energiaJogador2, pontosJogador, pontosComputador);
 
+                int sorteComeçar = random.Next(0, 2);
+
             Console.WriteLine("\n\n\n");
 
             // Vez do jogador 1
 
+            if (sorteComeçar == 0){
+
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($"Vez de {jogador.Nome}");
             Console.ResetColor();
-            Console.ReadLine();
+            
             int[] cartasJogador1 = GerarCartasAleatorias(random);
             int pontos1 = CalcularPontos(cartasJogador1, jogador.Nome, ref energiaJogador1);
             pontosJogador += pontos1;
             energiaJogador1--;
+            } else if (sorteComeçar == 1){
 
             // Vez do jogador 2
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($"Vez de {jogador2.Nome}");
             Console.ResetColor();
-            Console.ReadLine();
+            
             int[] cartasJogador2 = GerarCartasAleatorias(random);
             int pontos2 = CalcularPontos(cartasJogador2, jogador2.Nome, ref energiaJogador2);
             pontosComputador += pontos2;
             energiaJogador2--;
+            }
         }
 
         AtualizarGols(ref golsJogador, ref golsComputador, pontosJogador, pontosComputador);
@@ -564,7 +576,14 @@ class Program
         int energiaJogador = 10;
         int energiaComputador = 10;
 
-        Console.WriteLine($"{jogador.Nome} foi escolhido para começar primeiro");
+        
+                int sorteComeçar = random.Next(0, 2);
+
+
+        
+            
+
+        
         Console.WriteLine("Aperte ENTER para começar");
         Console.ReadLine();
 
@@ -576,6 +595,9 @@ class Program
             Console.WriteLine("\n\n\n");
 
             //-----------------------------------Vez do jogador de jogar ***FEITO-------------------------------------------------------
+
+            if ( sorteComeçar == 0){
+            
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($"Vez de {jogador.Nome}");
             Console.ResetColor();
@@ -588,6 +610,26 @@ class Program
             energiaJogador--;
 
             //--------------------------------------------------------------------------------------------------------------------------\\
+
+
+
+
+            Console.ForegroundColor = ConsoleColor.Red;
+
+            Console.WriteLine($"Vez do Computador");
+            Console.ResetColor();
+
+
+            int[] cartasComputador = GerarCartasAleatorias(random);
+            int pontosComp = CalcularPontos(cartasComputador, "Computador", ref energiaComputador);
+            pontosComputador += pontosComp;
+
+        
+            energiaComputador--;
+
+            } else if (sorteComeçar == 1){
+
+
 
             //-------------------------------Vez do Computador de jogar ***FEITO-------------------------------------------------------\\
             Console.ForegroundColor = ConsoleColor.Red;
@@ -605,6 +647,21 @@ class Program
             //-------------------------Reduzir energia do computador após escolha ***FEITO-------------------------------------------------\\
             energiaComputador--;
             //--------------------------------------------------------------------------------------------------------------------------\\
+
+
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"Vez de {jogador.Nome}");
+            Console.ResetColor();
+            Console.ReadLine();
+            int[] cartasJogador = GerarCartasAleatorias(random);
+            int pontos = CalcularPontos(cartasJogador, jogador.Nome, ref energiaJogador);
+            pontosJogador += pontos;
+
+
+            energiaJogador--;
+
+            }
             
         }
         AtualizarGols(ref golsJogador, ref golsComputador, pontosJogador, pontosComputador);
@@ -1319,7 +1376,7 @@ private static int CalcularPontosPRO(int[] cartasJogador, string jogadorNome, re
 
     if (aguardarInput)
     {
-        Console.WriteLine($"{jogadorNome}, pressione ENTER para abrir as cartas");
+        
         Console.ReadLine();
     }
 
@@ -1959,7 +2016,7 @@ else
 {
 
 
-    Console.WriteLine($"{jogador.Nome}, pressione ENTER para abrir as cartas");
+    
     Console.ReadLine();
 
     for (int i = 0; i < cartasJogador.Length; i++)

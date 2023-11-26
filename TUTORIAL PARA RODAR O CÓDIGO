@@ -6,3 +6,7 @@ Para rodar o código do jogo, necessita de três coisas:
 
 -Depois ir no terminal do VS code e digitar "dotnet run"
 (obs: coloque dotnet new console antes só para remediar)
+
+
+-DETALHE IMPORTANTE: SE A VERSÃO 8.0 NÃO FUNCIONAR (versão atual), BAIXE A VERSÃO 7.0 
+link: https://dotnet.microsoft.com/pt-br/download/dotnet

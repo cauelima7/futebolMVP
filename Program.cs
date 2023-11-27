@@ -763,6 +763,7 @@ class Program
         Console.WriteLine("                                                                      ) (");
         Console.WriteLine("                                                                    _.' '._");
         Console.WriteLine("                                                     ------------------------------------------");
+        Environment.Exit(0);
 
         }
         else if (energiaComputador > energiaJogador)
@@ -779,6 +780,7 @@ class Program
         Console.WriteLine("                                                                      ) (");
         Console.WriteLine("                                                                    _.' '._");
         Console.WriteLine("                                                     ------------------------------------------");
+        Environment.Exit(0);
 
 
 
@@ -897,14 +899,14 @@ class Program
 
          if (resp == 1 && golsJogador1 > golsJogador2 && pontosJogador>pontosComputador || golsJogador1 > golsJogador2 && pontosJogador<pontosComputador || golsJogador1 == golsJogador2 && pontosJogador>pontosComputador )
         {
-            Console.WriteLine($"PARABÉNS, {jogador.Nome}! VOCÊ VENCEU COM {golsJogador1} GOLS.");
+            Console.WriteLine($"PARABÉNS, {jogador.Nome}! VOCÊ VENCEU A PARTIDA");
             Console.WriteLine($"{jogador.Nome}: {pontosJogador} pontos.");
             LimparTela();
 
         }
         else if (resp == 1 && golsJogador2 > golsJogador1 && pontosComputador>pontosJogador || golsJogador2 > golsJogador1 && pontosComputador<pontosJogador ||golsJogador2 == golsJogador1 && pontosComputador>pontosJogador  )
         {
-            Console.WriteLine($"{jogador2.Nome} VENCEU COM {golsJogador2} GOLS MAS COM {pontosComputador} PONTOS.");
+            Console.WriteLine($"{jogador2.Nome} VENCEU VOCÊ VENCEU A PARTIDA");
             
             LimparTela();
         }
@@ -954,7 +956,7 @@ class Program
         
         if (resp == 1 &&  golsJogador1 > golsJogador2 && pontosJogador>pontosComputador || golsJogador1 > golsJogador2 && pontosJogador<pontosComputador || golsJogador1 == golsJogador2 && pontosJogador>pontosComputador )
         {
-            Console.WriteLine($"PARABÉNS, {nomeJogador1}! VOCÊ VENCEU COM {golsJogador1} GOLS, MAS COM {pontosJogador} PONTOS.");
+            Console.WriteLine($"PARABÉNS, {nomeJogador1}! VOCÊ VENCEU A PARTIDA");
             
 
 
@@ -974,7 +976,7 @@ class Program
         }
         else if (resp == 0 && golsJogador2 > golsJogador1 && pontosComputador>pontosJogador || golsJogador2 > golsJogador1 && pontosComputador<pontosJogador ||golsJogador2 == golsJogador1 && pontosComputador>pontosJogador  )
         {
-            Console.WriteLine($"{nomeJogador2} VENCEU COM {golsComputador} GOLS, MAS COM {pontosComputador} PONTOS.");
+            Console.WriteLine($"{nomeJogador2} VENCEU A PARTIDA");
             
 
 
@@ -2150,11 +2152,15 @@ else
                     if(jogadorNome == "Computador"){
                     golsComputador++;
 
-                    }else{
+                    }else if (jogadorNome == jogador2.Nome){
                         
-                        golsJogador++;
+                        golsJogador2++;
+                    }else if (jogadorNome == jogador.Nome){
+                        golsJogador1++;
                     }
 
+
+                    
                     return 3;
                 case 2:
                     
@@ -2168,6 +2174,20 @@ else
                   if (respPenalti == penalti)
                     {
                      Console.WriteLine("GOL!!!!");
+
+                         if(jogadorNome == "Computador"){
+                    golsComputador++;
+
+                    }else if (jogadorNome == jogador2.Nome){
+                        
+                        golsJogador2++;
+                    }else if (jogadorNome == jogador.Nome){
+                        golsJogador1++;
+                    }
+
+
+
+
                  return 2;
                 
                  }

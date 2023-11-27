@@ -10,3 +10,5 @@ Para rodar o código do jogo, necessita de três coisas:
 
 -DETALHE IMPORTANTE: SE A VERSÃO 8.0 NÃO FUNCIONAR (versão atual), BAIXE A VERSÃO 7.0 
 link: https://dotnet.microsoft.com/pt-br/download/dotnet
+
+-DETALHE IMPORTANTE 2: para melhor experiência, utilize o GIT BASH no terminal do VS CODE

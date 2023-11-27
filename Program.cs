@@ -904,8 +904,8 @@ class Program
         }
         else if (resp == 1 && golsJogador2 > golsJogador1 && pontosComputador>pontosJogador || golsJogador2 > golsJogador1 && pontosComputador<pontosJogador ||golsJogador2 == golsJogador1 && pontosComputador>pontosJogador  )
         {
-            Console.WriteLine($"{jogador2.Nome} VENCEU COM {golsJogador2} GOLS.");
-            Console.WriteLine($"{jogador2.Nome}: {pontosComputador} pontos.");
+            Console.WriteLine($"{jogador2.Nome} VENCEU COM {golsJogador2} GOLS MAS COM {pontosComputador} PONTOS.");
+            
             LimparTela();
         }
 
@@ -954,8 +954,8 @@ class Program
         
         if (resp == 1 &&  golsJogador1 > golsJogador2 && pontosJogador>pontosComputador || golsJogador1 > golsJogador2 && pontosJogador<pontosComputador || golsJogador1 == golsJogador2 && pontosJogador>pontosComputador )
         {
-            Console.WriteLine($"PARABÉNS, {nomeJogador1}! VOCÊ VENCEU COM {golsJogador1} GOLS.");
-            Console.WriteLine($"{nomeJogador1}: {pontosJogador} pontos.");
+            Console.WriteLine($"PARABÉNS, {nomeJogador1}! VOCÊ VENCEU COM {golsJogador1} GOLS, MAS COM {pontosJogador} PONTOS.");
+            
 
 
         Console.ForegroundColor = ConsoleColor.Yellow;    
@@ -974,8 +974,8 @@ class Program
         }
         else if (resp == 0 && golsJogador2 > golsJogador1 && pontosComputador>pontosJogador || golsJogador2 > golsJogador1 && pontosComputador<pontosJogador ||golsJogador2 == golsJogador1 && pontosComputador>pontosJogador  )
         {
-            Console.WriteLine($"{nomeJogador2} VENCEU COM {golsJogador2} GOLS.");
-            Console.WriteLine($"{nomeJogador2}: {pontosComputador} pontos.");
+            Console.WriteLine($"{nomeJogador2} VENCEU COM {golsComputador} GOLS, MAS COM {pontosComputador} PONTOS.");
+            
 
 
         Console.ForegroundColor = ConsoleColor.Yellow;    
@@ -1985,34 +1985,26 @@ private void AtualizarGols(ref int golsJogador, ref int golsComputador, int pont
 
 
 
-
-
-
 //GERAR CARTAS ALEATÓRIAS PARA O JOGADOR QUE FOR ABRIR
 private int[] GerarCartasAleatorias(Random random)
 {
     int[] cartas = new int[3];
-    int chanceCartaIgual = random.Next(1, 3); 
+    int chanceCartaIgual = random.Next(1, 8);  
 
     for (int i = 0; i < cartas.Length; i++)
     {
-        if (chanceCartaIgual <= 3) 
+        if (random.Next(1, 7) <= chanceCartaIgual)  
         {
             cartas[i] = random.Next(1, 7);
         }
         else
         {
-            cartas[i] = random.Next(1, 6); 
+            cartas[i] = random.Next(1, 6);
         }
     }
 
     return cartas;
 }
-
-
-
-
-
 
 
 

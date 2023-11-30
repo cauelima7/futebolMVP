@@ -4,7 +4,7 @@ Para rodar o código do jogo, necessita de três coisas:
 
 -Baixar o dotnet do c# - link: https://dotnet.microsoft.com/pt-br/download
 
--Depois ir no terminal do VS code e digitar "dotnet run"
+-Depois ir no terminal do VS code com a pasta do projeto e digitar "dotnet run"
 
 
 -DETALHE IMPORTANTE: SE A VERSÃO 8.0 NÃO FUNCIONAR (versão atual), BAIXE A VERSÃO 7.0 
